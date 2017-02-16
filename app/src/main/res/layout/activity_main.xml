@@ -10,4 +10,31 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.gatech.cs2340.a2340_android_dev_project.controllers.MainActivity">
 
+    <TextView
+        android:text="This is the main screen of the application. There's nothing here quite yet, but in time there will be."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="104dp"
+        android:id="@+id/textView3" />
+
+    <TextView
+        android:text="For now, though, click the button below to sign out and return to the login screen."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView4" />
+
+    <Button
+        android:text="Sign Out"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="83dp"
+        android:id="@+id/signOutButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.Button" />
 </RelativeLayout>

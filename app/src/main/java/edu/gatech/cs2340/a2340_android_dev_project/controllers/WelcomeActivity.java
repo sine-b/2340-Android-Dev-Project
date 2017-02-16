@@ -20,7 +20,7 @@ public class WelcomeActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onLoginButtonClicked(view);
+                onLoginButtonPressed(view);
             }
         });
 
@@ -29,7 +29,7 @@ public class WelcomeActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onRegisterButtonClicked(view);
+                onRegisterButtonPressed(view);
             }
         });
     }
@@ -40,7 +40,7 @@ public class WelcomeActivity extends AppCompatActivity {
      *
      * @param v the view the OnClickListener belongs to
      */
-    public void onLoginButtonClicked(View v) {
+    public void onLoginButtonPressed(View v) {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
@@ -51,7 +51,7 @@ public class WelcomeActivity extends AppCompatActivity {
      *
      * @param v the view the OnClickListener belongs to
      */
-    public void onRegisterButtonClicked(View v) {
+    public void onRegisterButtonPressed(View v) {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }

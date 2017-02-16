@@ -13,16 +13,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // event handler for the sign out button
         Button signOutButton = (Button) findViewById(R.id.signOutButton);
         signOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onSignOutButtonClicked();
+                onSignOutButtonPressed(view);
             }
         });
     }
 
-    public void onSignOutButtonClicked() {
+    /**
+     * Function for the sign out button's onClick method. Returns
+     * the user to the welcome activity.
+     *
+     * @param v the view the OnClickListener belongs to
+     */
+    public void onSignOutButtonPressed(View v) {
         Intent intent = new Intent(this, WelcomeActivity.class);
         startActivity(intent);
     }

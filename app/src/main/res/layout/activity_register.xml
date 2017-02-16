@@ -17,9 +17,10 @@
         android:text="Username"
         android:ems="10"
         android:layout_marginTop="37dp"
-        android:id="@+id/editText3"
+        android:id="@+id/registerUser"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:selectAllOnFocus="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -27,18 +28,19 @@
         android:inputType="textPassword"
         android:ems="10"
         android:layout_marginTop="44dp"
-        android:id="@+id/editText4"
-        android:layout_below="@+id/editText3"
-        android:layout_alignLeft="@+id/editText3"
-        android:layout_alignStart="@+id/editText3"
-        android:text="Password" />
+        android:id="@+id/registerPass"
+        android:layout_below="@+id/registerUser"
+        android:layout_alignLeft="@+id/registerUser"
+        android:layout_alignStart="@+id/registerUser"
+        android:text="Password"
+        android:selectAllOnFocus="true" />
 
     <Button
         android:text="Register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button2"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        style="@style/Widget.AppCompat.Button.Colored" />
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:id="@+id/registerButton" />
 </RelativeLayout>

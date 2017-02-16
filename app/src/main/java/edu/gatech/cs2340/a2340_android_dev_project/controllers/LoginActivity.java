@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import edu.gatech.cs2340.a2340_android_dev_project.model.User;
+import edu.gatech.cs2340.a2340_android_dev_project.model.UserList;
+
 public class LoginActivity extends AppCompatActivity {
 
     @Override
@@ -15,22 +18,33 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button signInButton = (Button) findViewById(R.id.signIn);
+        // event handler for sign in button
+        Button signInButton = (Button) findViewById(R.id.loginButton);
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onSignInButtonPressed();
+                onSignInButtonPressed(view);
             }
         });
     }
 
-    public void onSignInButtonPressed() {
-
+    /**
+     * Function for the sign in button's onClick method. Validates
+     * the login credentials (which have been hardcoded here for now)
+     * and switches to the main activity if they're right. Otherwise,
+     * displays a toast message saying the credentials were invalid.
+     *
+     * @param v the view the OnClickListener belongs to
+     */
+    public void onSignInButtonPressed(View v) {
         EditText username = (EditText) findViewById(R.id.loginUser);
         EditText password = (EditText) findViewById(R.id.loginPass);
-        if (username.getText().toString().equals("user") && password.getText().toString().equals("pass")) {
-            Toast success = Toast.makeText(getApplicationContext(), "Ok!", Toast.LENGTH_SHORT);
-            success.show();
+
+        // hardcoding a dummy user for the time being
+        UserList userList = new UserList();
+        userList.addUser("user", "pass");
+
+        if (userList.authenticate(username.getText().toString(), password.getText().toString())) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         } else {

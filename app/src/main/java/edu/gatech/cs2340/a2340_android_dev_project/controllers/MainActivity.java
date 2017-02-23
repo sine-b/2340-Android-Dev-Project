@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
                 onSignOutButtonPressed(view);
             }
         });
+        // event handler for the edit profile button
         Button editProfileButton = (Button) findViewById(R.id.editProfileButton);
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override

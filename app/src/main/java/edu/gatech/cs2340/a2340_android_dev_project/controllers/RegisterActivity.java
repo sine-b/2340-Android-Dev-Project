@@ -41,8 +41,8 @@ public class RegisterActivity extends AppCompatActivity {
         return userList;
     }
     /**
-     * Function for the register button's onClick method. Pops
-     * a toast message saying registration isn't available yet.
+     * Function for the register button's onClick method. Registers
+     * a user to the user list and then logs you in
      *
      * @param v the view the OnClickListener belongs to
      */

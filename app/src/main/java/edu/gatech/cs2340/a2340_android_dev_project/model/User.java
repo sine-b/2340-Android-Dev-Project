@@ -15,6 +15,7 @@ public class User {
     String title = "";
     String email = "";
     String address = "";
+    String phoneNum = "";
     /**
      * Constructs a new user with the username and password provided.
      *
@@ -31,6 +32,10 @@ public class User {
         this.pass = "";
         this.type = AccType.WORKER;
     }
+    /**
+     * Getter methods for the variables defined in each user
+     * returns whatever value that is requested
+     */
     public String getUser() {
         return user;
     }
@@ -49,7 +54,13 @@ public class User {
     public String getAddress() {
         return address;
     }
+    public String getPhoneNum() {
+        return phoneNum;
+    }
 
+    /**
+     * Setter methods for the title, address, email, and phonenumber variables defined in each user
+     */
     public void setTitle(String title) {
         this.title = title;
     }
@@ -59,6 +70,10 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
+    }
+
     /**
      * Checks if the password belongs to this user.
      *

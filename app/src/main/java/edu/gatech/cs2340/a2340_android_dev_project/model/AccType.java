@@ -3,7 +3,8 @@ package edu.gatech.cs2340.a2340_android_dev_project.model;
 import java.io.Serializable;
 
 /**
- * Created by wes on 2/21/2017.
+ *
+ * Handles the differnt accounts the user can have currently has no restrictions
  */
 
 public enum AccType implements Serializable {

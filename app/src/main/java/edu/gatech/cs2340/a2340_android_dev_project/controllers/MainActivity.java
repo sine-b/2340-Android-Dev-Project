@@ -6,12 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import edu.gatech.cs2340.a2340_android_dev_project.model.User;
+
 public class MainActivity extends AppCompatActivity {
 
+    public static User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        user = RegisterActivity.user;
 
         // event handler for the sign out button
         Button signOutButton = (Button) findViewById(R.id.signOutButton);
@@ -21,6 +25,18 @@ public class MainActivity extends AppCompatActivity {
                 onSignOutButtonPressed(view);
             }
         });
+        Button editProfileButton = (Button) findViewById(R.id.editProfileButton);
+        editProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onEditProfileButtonPressed(view);
+            }
+        });
+    }
+
+    public void onEditProfileButtonPressed(View v) {
+        Intent intent = new Intent(this, EditActivity.class);
+        startActivity(intent);
     }
 
     /**

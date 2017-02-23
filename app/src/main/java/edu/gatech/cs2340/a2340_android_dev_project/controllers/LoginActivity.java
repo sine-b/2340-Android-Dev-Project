@@ -8,11 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import edu.gatech.cs2340.a2340_android_dev_project.model.AccType;
 import edu.gatech.cs2340.a2340_android_dev_project.model.User;
 import edu.gatech.cs2340.a2340_android_dev_project.model.UserList;
 
 public class LoginActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,10 +41,10 @@ public class LoginActivity extends AppCompatActivity {
         EditText password = (EditText) findViewById(R.id.loginPass);
 
         // hardcoding a dummy user for the time being
-        UserList userList = new UserList();
-        userList.addUser("user", "pass");
-
+        UserList userList = RegisterActivity.getUserList();
+        //userList.addUser("name", "pass", AccType.WORKER);
         if (userList.authenticate(username.getText().toString(), password.getText().toString())) {
+            RegisterActivity.user = userList.getUser(username.getText().toString());
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         } else {

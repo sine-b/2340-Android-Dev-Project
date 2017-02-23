@@ -18,11 +18,19 @@ public class UserList {
      * @param name the string that will serve as the new user's name
      * @param pass the string that will serve as the new user's password
      */
-    public void addUser(String name, String pass) {
-        User user = new User("name", "pass");
+    public void addUser(String name, String pass, AccType type) {
+        User user = new User(name, pass, type);
         userList.put(name, user);
     }
-
+    public void addUser(User user) {
+        if (userList.containsKey(user.getUser())) {
+            userList.remove(user.getUser());
+        }
+        userList.put(user.getUser(), user);
+    }
+    public User getUser(String name) {
+        return userList.get(name);
+    }
     /**
      * Authenticates the credentials provided, checking if the pairing
      * is associate with a user.

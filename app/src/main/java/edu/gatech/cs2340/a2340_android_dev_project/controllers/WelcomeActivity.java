@@ -7,9 +7,9 @@ import android.view.View;
 import android.widget.Button;
 
 import edu.gatech.cs2340.a2340_android_dev_project.controllers.R;
+import edu.gatech.cs2340.a2340_android_dev_project.model.UserList;
 
 public class WelcomeActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

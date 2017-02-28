@@ -8,7 +8,7 @@ import java.io.Serializable;
  */
 
 public enum AccType implements Serializable {
-    WORKER("Worker"), MANAGER("Manager"), ADMIN("Admin");
+    BASICUSER("Basic User"), WORKER("Worker"), MANAGER("Manager"), ADMIN("Admin");
     private String value;
 
     AccType(String value) {

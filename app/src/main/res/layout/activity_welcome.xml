@@ -11,7 +11,7 @@
     tools:context="edu.gatech.cs2340.a2340_android_dev_project.controllers.WelcomeActivity">
 
     <TextView
-        android:text="Welcome."
+        android:text="Welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"

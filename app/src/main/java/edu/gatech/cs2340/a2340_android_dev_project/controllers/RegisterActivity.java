@@ -17,17 +17,21 @@ import edu.gatech.cs2340.a2340_android_dev_project.model.AccType;
 
 public class RegisterActivity extends AppCompatActivity {
     public static UserList userList = new UserList();
-    Spinner type;
     public static User user = new User();
+    Spinner type;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        // set up spinner, associate with AccType enum
         type = (Spinner) findViewById(R.id.registertype);
-        ArrayAdapter<String> adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, AccType.values());
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        type.setAdapter(adapter2);
-        type.setSelection(AccType.WORKER.ordinal());
+        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, AccType.values());
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        type.setAdapter(adapter);
+        type.setSelection(AccType.BASICUSER.ordinal());
+
         // event handler for register button
         Button registerButton = (Button) findViewById(R.id.registerButton);
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -37,9 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
-    public static UserList getUserList() {
-        return userList;
-    }
+
     /**
      * Function for the register button's onClick method. Registers
      * a user to the user list and then logs you in
@@ -56,4 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public static UserList getUserList() {
+        return userList;
+    }
 }

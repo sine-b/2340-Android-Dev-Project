@@ -9,12 +9,13 @@ import android.widget.Button;
 import edu.gatech.cs2340.a2340_android_dev_project.model.User;
 
 public class MainActivity extends AppCompatActivity {
-
     public static User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         user = RegisterActivity.user;
 
         // event handler for the sign out button
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
                 onSignOutButtonPressed(view);
             }
         });
+
         // event handler for the edit profile button
         Button editProfileButton = (Button) findViewById(R.id.editProfileButton);
         editProfileButton.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Function for the edit profile button's onClick method.
+     * Sends the user to the profile editting screen.
+     *
+     * @param v the view the OnClickListener belongs to
+     */
     public void onEditProfileButtonPressed(View v) {
         Intent intent = new Intent(this, EditActivity.class);
         startActivity(intent);

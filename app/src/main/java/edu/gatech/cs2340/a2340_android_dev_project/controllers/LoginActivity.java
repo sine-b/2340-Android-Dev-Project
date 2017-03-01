@@ -40,9 +40,8 @@ public class LoginActivity extends AppCompatActivity {
         EditText username = (EditText) findViewById(R.id.loginUser);
         EditText password = (EditText) findViewById(R.id.loginPass);
 
-        // hardcoding a dummy user for the time being
         UserList userList = RegisterActivity.getUserList();
-        //userList.addUser("name", "pass", AccType.WORKER);
+
         if (userList.authenticate(username.getText().toString(), password.getText().toString())) {
             RegisterActivity.user = userList.getUser(username.getText().toString());
             Intent intent = new Intent(this, MainActivity.class);

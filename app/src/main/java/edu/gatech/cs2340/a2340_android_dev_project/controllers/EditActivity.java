@@ -23,10 +23,12 @@ public class EditActivity extends AppCompatActivity {
     private EditText addressField;
     private EditText titleField;
     private EditText numberField;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
+
         // sets the fields to the previous fields
         emailField = (EditText) findViewById(R.id.email);
         addressField = (EditText) findViewById(R.id.address);
@@ -34,6 +36,7 @@ public class EditActivity extends AppCompatActivity {
         numberField = (EditText) findViewById(R.id.phoneNum);
         TextView type = (TextView)findViewById(R.id.type);
         type.setText(MainActivity.user.getType().getValue());
+
         // event handler for save button
         Button saveButton = (Button) findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
@@ -42,11 +45,13 @@ public class EditActivity extends AppCompatActivity {
                 onSaveButtonPressed(view);
             }
         });
+
         emailField.setText(MainActivity.user.getEmail());
         addressField.setText(MainActivity.user.getAddress());
         titleField.setText(MainActivity.user.getTitle());
         numberField.setText(MainActivity.user.getPhoneNum());
     }
+
     /**
      * Function for the save button's onClick method.
      * Saves the users profile information

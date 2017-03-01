@@ -11,24 +11,28 @@
     tools:context="edu.gatech.cs2340.a2340_android_dev_project.controllers.WelcomeActivity">
 
     <TextView
-        android:text="Welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="92dp" />
+        android:layout_marginTop="92dp"
+        android:text="Water is a basic human right."
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:textStyle="normal|bold" />
 
     <TextView
-        android:text="Made with love by Team 43"
+        android:text="Help others gain access to it."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
         android:id="@+id/textView2"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp" />
 
     <Button
         android:text="Sign In"

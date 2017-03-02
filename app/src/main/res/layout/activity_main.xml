@@ -10,42 +10,48 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.gatech.cs2340.a2340_android_dev_project.controllers.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/textView4" />
-
     <Button
         android:text="Sign Out"
-        android:layout_below="@+id/textView4"
-        android:layout_marginTop="83dp"
         android:id="@+id/signOutButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Widget.AppCompat.Button" />
+        style="@style/Widget.AppCompat.Button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="26dp" />
 
     <Button
         android:text="Edit Profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
         android:id="@+id/editProfileButton"
         style="@style/Widget.AppCompat.Button"
-        android:layout_below="@+id/textView4"
+        android:layout_above="@+id/signOutButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
-        android:text="This is the main screen of the application. There's nothing here quite yet, but in time there will be."
+    <Button
+        android:text="Submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:id="@+id/textView3"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="58dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="110dp"
+        android:id="@+id/submitReportButton" />
+
+    <Button
+        android:text="List"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/submitReportButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="57dp"
+        android:layout_marginEnd="57dp"
+        android:id="@+id/listButton" />
+
 </RelativeLayout>

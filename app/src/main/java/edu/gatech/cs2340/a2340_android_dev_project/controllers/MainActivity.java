@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import edu.gatech.cs2340.a2340_android_dev_project.model.ReportList;
 import edu.gatech.cs2340.a2340_android_dev_project.model.User;
 
 public class MainActivity extends AppCompatActivity {
     public static User user;
+    public static ReportList reportList = new ReportList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +37,29 @@ public class MainActivity extends AppCompatActivity {
                 onEditProfileButtonPressed(view);
             }
         });
+
+        // event handler for the submit report button
+        Button submitButton = (Button) findViewById(R.id.submitReportButton);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onSubmitButtonPressed(view);
+            }
+        });
+
+        // event handler for the list report button
+        Button listButton = (Button) findViewById(R.id.listButton);
+        listButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onListButtonPressed(view);
+            }
+        });
     }
 
     /**
      * Function for the edit profile button's onClick method.
-     * Sends the user to the profile editting screen.
+     * Sends the user to the profile editing screen.
      *
      * @param v the view the OnClickListener belongs to
      */
@@ -57,5 +77,26 @@ public class MainActivity extends AppCompatActivity {
     public void onSignOutButtonPressed(View v) {
         Intent intent = new Intent(this, WelcomeActivity.class);
         startActivity(intent);
+    }
+
+    /**
+     * Function for the submit report button's onClick method. Sends
+     * the user to the report submission screen.
+     *
+     * @param v the view the OnClickListener belongs to
+     */
+    public void onSubmitButtonPressed(View v) {
+        Intent intent = new Intent(this, SubmitReportActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Function for the list report button's onClick method. Shows
+     * the user a list of submitted reports.
+     *
+     * @param v
+     */
+    public void onListButtonPressed(View v) {
+        // TODO make intent for report list screen
     }
 }

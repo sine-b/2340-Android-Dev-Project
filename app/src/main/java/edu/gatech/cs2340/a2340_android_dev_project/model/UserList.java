@@ -28,12 +28,14 @@ public class UserList {
         }
         userList.put(user.getUser(), user);
     }
+
     public User getUser(String name) {
         return userList.get(name);
     }
+
     /**
      * Authenticates the credentials provided, checking if the pairing
-     * is associate with a user.
+     * is associated with a user.
      *
      * @param name the name to be checked
      * @param pass the password to be checked

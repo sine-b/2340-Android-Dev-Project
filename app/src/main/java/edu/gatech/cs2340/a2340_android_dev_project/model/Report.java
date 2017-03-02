@@ -69,4 +69,9 @@ public class Report {
         this.condition = condition;
     }
 
+    @Override
+    public String toString() {
+        return id + " - " + type + ", " + condition;
+    }
+
 }

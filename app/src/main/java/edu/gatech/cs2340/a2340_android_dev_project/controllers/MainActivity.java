@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
      * @param v
      */
     public void onListButtonPressed(View v) {
-        // TODO make intent for report list screen
+        Intent intent = new Intent(this, ListReportActivity.class);
+        startActivity(intent);
     }
 }

@@ -55,4 +55,9 @@ public class WelcomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        // does nothing so logout can't be circumvented
+    }
 }

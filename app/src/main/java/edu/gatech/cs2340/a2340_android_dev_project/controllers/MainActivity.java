@@ -100,4 +100,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ListReportActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        // does nothing so logout feels more secure
+    }
+
 }

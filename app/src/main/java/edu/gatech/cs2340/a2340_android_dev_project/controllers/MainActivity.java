@@ -55,6 +55,15 @@ public class MainActivity extends AppCompatActivity {
                 onListButtonPressed(view);
             }
         });
+
+        // event handler for the map button
+        Button mapButton = (Button) findViewById(R.id.mapButton);
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onMapButtonPressed(view);
+            }
+        });
     }
 
     /**
@@ -94,10 +103,21 @@ public class MainActivity extends AppCompatActivity {
      * Function for the list report button's onClick method. Shows
      * the user a list of submitted reports.
      *
-     * @param v
+     * @param v the view the OnClickListener belongs to
      */
     public void onListButtonPressed(View v) {
         Intent intent = new Intent(this, ListReportActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Function for the map button's onClick method. Shows
+     * the user a list of submitted reports.
+     *
+     * @param v the view the OnClickListener belongs to
+     */
+    public void onMapButtonPressed(View v) {
+        Intent intent = new Intent(this, MapActivity.class);
         startActivity(intent);
     }
 

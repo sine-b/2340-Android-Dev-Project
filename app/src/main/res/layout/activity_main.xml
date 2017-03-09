@@ -58,9 +58,9 @@
         android:text="Map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/editProfileButton"
+        android:id="@+id/mapButton"
+        android:layout_below="@+id/submitReportButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="73dp"
-        android:id="@+id/mapButton" />
+        android:layout_marginTop="33dp" />
 
 </RelativeLayout>

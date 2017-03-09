@@ -112,12 +112,12 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Function for the map button's onClick method. Shows
-     * the user a list of submitted reports.
+     * a map of nearby reports.
      *
      * @param v the view the OnClickListener belongs to
      */
     public void onMapButtonPressed(View v) {
-        Intent intent = new Intent(this, MapActivity.class);
+        Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
     }
 

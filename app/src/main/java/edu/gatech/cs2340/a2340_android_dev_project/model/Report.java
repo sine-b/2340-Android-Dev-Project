@@ -1,6 +1,8 @@
 package edu.gatech.cs2340.a2340_android_dev_project.model;
 
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.Date;
 
 public class Report {
@@ -8,8 +10,7 @@ public class Report {
     private String date;
     private int id;
     private String reporter;
-    private double latitude;
-    private double longitude;
+    private LatLng location;
     private WaterType type;
     private WaterCondition condition;
 
@@ -25,12 +26,8 @@ public class Report {
         return reporter;
     }
 
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public double getLongitude() {
-        return longitude;
+    public LatLng getLocation() {
+        return location;
     }
 
     public WaterType getType() {
@@ -53,12 +50,8 @@ public class Report {
         this.reporter = reporter;
     }
 
-    public void setLatitude(double latitude) {
-        this.latitude  = latitude;
-    }
-
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
+    public void setLocation(LatLng location) {
+        this.location = location;
     }
 
     public void setType(WaterType type) {

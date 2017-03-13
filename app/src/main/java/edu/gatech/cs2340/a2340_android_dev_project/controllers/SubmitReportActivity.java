@@ -8,6 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.google.android.gms.maps.model.LatLng;
 
 import edu.gatech.cs2340.a2340_android_dev_project.model.Report;
 import edu.gatech.cs2340.a2340_android_dev_project.model.WaterCondition;
@@ -17,6 +20,8 @@ public class SubmitReportActivity extends AppCompatActivity {
 
     private Spinner typeSpinner;
     private Spinner conditionSpinner;
+    private boolean locationSelected = false;
+    private LatLng reportLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,15 @@ public class SubmitReportActivity extends AppCompatActivity {
         conditionSpinner.setAdapter(conditionAdapter);
         conditionSpinner.setSelection(WaterCondition.POTABLE.ordinal());
 
+        // event handler for the select location button
+        Button selectLocationButton = (Button) findViewById(R.id.locationSelectButton);
+        selectLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onSelectLocationButtonPressed(view);
+            }
+        });
+
         // event handler for the submit button
         Button submitReportButton = (Button) findViewById(R.id.submitReportButton);
         submitReportButton.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +62,25 @@ public class SubmitReportActivity extends AppCompatActivity {
     }
 
     /**
+     * Function for the select location button's onClick method.
+     * Sends the user to a map screen where they can tap the location
+     * of a water source.
+     *
+     * @param v the view the OnClickListener belongs to
+     */
+    public void onSelectLocationButtonPressed(View v) {
+
+        Intent intent = new Intent(this, SelectLocationActivity.class);
+        startActivity(intent);
+
+        locationSelected = true;
+
+        Button button = (Button) findViewById(R.id.locationSelectButton);
+        button.setText("Ok!");
+
+    }
+
+    /**
      * Function for the submit report button's onClick method.
      * Creates a new report from the entered information and
      * adds it to the report list. Once done, the user is sent
@@ -56,18 +89,25 @@ public class SubmitReportActivity extends AppCompatActivity {
      * @param v the view the OnClickListener belongs to
      */
     public void onSubmitReportButtonPressed(View v) {
-        EditText latitude = (EditText) findViewById(R.id.latitudeText);
-        EditText longitude = (EditText) findViewById(R.id.longitudeText);
 
-        Report newReport = new Report();
-        newReport.setLatitude(Double.parseDouble(latitude.getText().toString()));
-        newReport.setLongitude(Double.parseDouble(longitude.getText().toString()));
-        newReport.setType((WaterType) typeSpinner.getSelectedItem());
-        newReport.setCondition((WaterCondition) conditionSpinner.getSelectedItem());
+        if (!locationSelected) {
 
-        MainActivity.reportList.addReport(newReport);
+            Toast error = Toast.makeText(getApplicationContext(), "You need to select a location first", Toast.LENGTH_SHORT);
+            error.show();
 
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        } else {
+
+            Report newReport = new Report();
+            newReport.setLocation(SelectLocationActivity.getLocation());
+            newReport.setType((WaterType) typeSpinner.getSelectedItem());
+            newReport.setCondition((WaterCondition) conditionSpinner.getSelectedItem());
+
+            MainActivity.reportList.addReport(newReport);
+
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+
+        }
+
     }
 }

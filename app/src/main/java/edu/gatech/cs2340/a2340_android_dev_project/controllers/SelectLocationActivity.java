@@ -1,26 +1,26 @@
 package edu.gatech.cs2340.a2340_android_dev_project.controllers;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import edu.gatech.cs2340.a2340_android_dev_project.model.Report;
-
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class SelectLocationActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private static LatLng location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
+        setContentView(R.layout.activity_select_location);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -42,14 +42,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // populate map with nearby water reports
-        for (Report report : MainActivity.reportList.getReports()) {
-            LatLng latLng = report.getLocation();
-            mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-            MarkerOptions markerOptions = new MarkerOptions();
-            markerOptions.position(latLng);
-            markerOptions.title("Report #" + report.getId());
-            mMap.addMarker(markerOptions);
-        }
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng point) {
+                location = point;
+                onBackPressed();
+            }
+        });
     }
+
+    /**
+     * Returns the location attribute of the class,
+     * typically the location just selected by the
+     * user within the map.
+     *
+     * @return the last tapped LatLng on the map
+     */
+    public static LatLng getLocation() {
+        return location;
+    }
+
 }

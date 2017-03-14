@@ -1,11 +1,18 @@
 package edu.gatech.cs2340.a2340_android_dev_project.controllers;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import edu.gatech.cs2340.a2340_android_dev_project.model.Report;
+
+import static edu.gatech.cs2340.a2340_android_dev_project.controllers.R.layout.activity_report_details;
 
 public class ListReportActivity extends AppCompatActivity {
 
@@ -25,8 +32,16 @@ public class ListReportActivity extends AppCompatActivity {
         reportListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // TODO popup window with detailed report information
+
+                ReportDetailsActivity.setReport(MainActivity.reportList.getReportList().get(position));
+                onReportPressed(view);
+
             }
         });
+    }
+
+    public void onReportPressed(View v) {
+        Intent intent = new Intent(this, ReportDetailsActivity.class);
+        startActivity(intent);
     }
 }

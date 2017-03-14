@@ -1,7 +1,11 @@
 package edu.gatech.cs2340.a2340_android_dev_project.controllers;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -60,11 +64,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     return false;
                 }
 
-                int reportId = Integer.parseInt(marker.getTitle());
-                Report report = MainActivity.reportList.getReportList().get(reportId);
-                // TODO popup window with details report information
+                ReportDetailsActivity.setReport(MainActivity.reportList.getReportList().get(Integer.parseInt(marker.getTitle())));
+                onMarkerPressed();
+
                 return true;
             }
         });
+    }
+
+    /**
+     * Function for a map marker's onClick method.
+     * Opens the ReportDetailsActivity which details
+     * the report associated with the marker.
+     */
+    public void onMarkerPressed() {
+        Intent intent = new Intent(this, ReportDetailsActivity.class);
+        startActivity(intent);
     }
 }

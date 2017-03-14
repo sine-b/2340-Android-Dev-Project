@@ -13,6 +13,18 @@ public class ReportList {
     int idCounter = 0;
 
     /**
+     * Returns the ArrayList that holds the current
+     * reports. Accessed by MapsActivity.
+     *
+     * @return an ArrayList of all current reports
+     */
+    public ArrayList<Report> getReportList() {
+        return reportList;
+    }
+
+    // TODO figure out if getReports() is necessary anymore
+
+    /**
      * Adds a new report to the ReportList with a
      * system-assigned id
      *

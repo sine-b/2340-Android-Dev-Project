@@ -18,14 +18,14 @@ public class ListReportActivity extends AppCompatActivity {
 
         // set up list view
         reportListView = (ListView) findViewById(R.id.reportListView);
-        ArrayAdapter<String> listAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, MainActivity.reportList.getReports());
+        ArrayAdapter<String> listAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, MainActivity.reportList.getReportList());
         reportListView.setAdapter(listAdapter);
 
         // event handler for report on list
         reportListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                // TODO popup window with detailed report information
             }
         });
     }

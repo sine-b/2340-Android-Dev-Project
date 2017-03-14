@@ -8,10 +8,12 @@ import android.widget.TextView;
 
 import edu.gatech.cs2340.a2340_android_dev_project.model.Report;
 
-//import edu.gatech.cs2340.a2340_android_dev_project.R;
-
+/**
+ * Activity that displays detailed information about a report. Another activity
+ * sets its report attribute and then this activity displays more information about
+ * it.
+ */
 public class ReportDetailsActivity extends AppCompatActivity {
-
     private static Report report;
 
     @Override

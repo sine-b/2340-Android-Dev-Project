@@ -5,9 +5,7 @@ package edu.gatech.cs2340.a2340_android_dev_project.model;
  * username and password attributes for now, may have role or privilege
  * attribute later.
  */
-
 public class User {
-
     String user;
     String pass;
     AccType type;
@@ -16,6 +14,7 @@ public class User {
     String email = "";
     String address = "";
     String phoneNum = "";
+
     /**
      * Constructs a new user with the username and password provided.
      *
@@ -32,6 +31,7 @@ public class User {
         this.pass = "";
         this.type = AccType.WORKER;
     }
+
     /**
      * Getter methods for the variables defined in each user
      * returns whatever value that is requested
@@ -83,5 +83,4 @@ public class User {
     public boolean checkPass(String pass) {
         return pass.equals(this.pass);
     }
-
 }

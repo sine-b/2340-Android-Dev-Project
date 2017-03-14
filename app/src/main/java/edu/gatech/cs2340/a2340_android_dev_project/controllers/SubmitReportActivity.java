@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -16,8 +15,10 @@ import edu.gatech.cs2340.a2340_android_dev_project.model.Report;
 import edu.gatech.cs2340.a2340_android_dev_project.model.WaterCondition;
 import edu.gatech.cs2340.a2340_android_dev_project.model.WaterType;
 
+/**
+ * Activity that handles the creation of new reports.
+ */
 public class SubmitReportActivity extends AppCompatActivity {
-
     private Spinner typeSpinner;
     private Spinner conditionSpinner;
     private boolean locationSelected = false;
@@ -69,7 +70,6 @@ public class SubmitReportActivity extends AppCompatActivity {
      * @param v the view the OnClickListener belongs to
      */
     public void onSelectLocationButtonPressed(View v) {
-
         Intent intent = new Intent(this, SelectLocationActivity.class);
         startActivity(intent);
 
@@ -77,7 +77,6 @@ public class SubmitReportActivity extends AppCompatActivity {
 
         Button button = (Button) findViewById(R.id.locationSelectButton);
         button.setText("Ok!");
-
     }
 
     /**
@@ -89,14 +88,10 @@ public class SubmitReportActivity extends AppCompatActivity {
      * @param v the view the OnClickListener belongs to
      */
     public void onSubmitReportButtonPressed(View v) {
-
         if (!locationSelected) {
-
             Toast error = Toast.makeText(getApplicationContext(), "You need to select a location first", Toast.LENGTH_SHORT);
             error.show();
-
         } else {
-
             Report newReport = new Report();
             newReport.setLocation(SelectLocationActivity.getLocation());
             newReport.setType((WaterType) typeSpinner.getSelectedItem());
@@ -106,8 +101,6 @@ public class SubmitReportActivity extends AppCompatActivity {
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
-
         }
-
     }
 }

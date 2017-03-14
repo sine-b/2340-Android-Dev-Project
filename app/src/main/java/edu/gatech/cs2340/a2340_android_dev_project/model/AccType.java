@@ -3,12 +3,9 @@ package edu.gatech.cs2340.a2340_android_dev_project.model;
 import java.io.Serializable;
 
 /**
- *
- * Handles the differnt accounts the user can have currently has no restrictions
+ * Handles the different accounts the user can have currently has no restrictions
  */
-
 public enum AccType implements Serializable {
-
     BASICUSER("Basic User"), WORKER("Worker"), MANAGER("Manager"), ADMIN("Admin");
 
     private String value;
@@ -17,6 +14,11 @@ public enum AccType implements Serializable {
         this.value = value;
     }
 
+    /**
+     * Returns the string representation of an account type.
+     *
+     * @return the string representation of this enum value
+     */
     public String getValue() {
         return value;
     }
@@ -25,5 +27,4 @@ public enum AccType implements Serializable {
     public String toString() {
         return value;
     }
-
 }

@@ -7,8 +7,11 @@ import java.text.SimpleDateFormat;
 
 import edu.gatech.cs2340.a2340_android_dev_project.controllers.RegisterActivity;
 
+/**
+ * Class that defines methods for and stores the current list of reports.
+ * Utilizes an ArrayList to hold the reports.
+ */
 public class ReportList {
-
     ArrayList<Report> reportList = new ArrayList<>();
     int idCounter = 0;
 
@@ -21,8 +24,6 @@ public class ReportList {
     public ArrayList<Report> getReportList() {
         return reportList;
     }
-
-    // TODO figure out if getReports() is necessary anymore
 
     /**
      * Adds a new report to the ReportList with a
@@ -39,19 +40,4 @@ public class ReportList {
         reportList.add(report);
         idCounter++;
     }
-
-    /**
-     * Returns an array of the Reports in the
-     * ReportList. For use with ArrayAdapters.
-     *
-     * @return array of ReportList's reports
-     */
-    public Report[] getReports() {
-        Report[] reportArray = new Report[reportList.size()];
-        for (int i = 0; i < reportArray.length; i++) {
-            reportArray[i] = reportList.get(i);
-        }
-        return reportArray;
-    }
-
 }

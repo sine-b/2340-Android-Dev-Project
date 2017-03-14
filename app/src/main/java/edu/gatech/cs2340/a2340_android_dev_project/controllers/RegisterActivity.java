@@ -8,13 +8,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import edu.gatech.cs2340.a2340_android_dev_project.controllers.LoginActivity;
 import edu.gatech.cs2340.a2340_android_dev_project.model.User;
 import edu.gatech.cs2340.a2340_android_dev_project.model.UserList;
 import edu.gatech.cs2340.a2340_android_dev_project.model.AccType;
 
+/**
+ * Activity that handles registering new users. Also holds the userList refered to
+ * by the LoginActivity.
+ */
 public class RegisterActivity extends AppCompatActivity {
     public static UserList userList = new UserList();
     public static User user = new User();
@@ -58,6 +60,12 @@ public class RegisterActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Gets the userList associated with RegisterActivity.
+     * Used mainly by LoginActivity.
+     *
+     * @return the current list of users registered
+     */
     public static UserList getUserList() {
         return userList;
     }

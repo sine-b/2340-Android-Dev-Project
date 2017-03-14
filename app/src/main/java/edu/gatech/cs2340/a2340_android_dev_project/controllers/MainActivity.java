@@ -9,7 +9,13 @@ import android.widget.Button;
 import edu.gatech.cs2340.a2340_android_dev_project.model.ReportList;
 import edu.gatech.cs2340.a2340_android_dev_project.model.User;
 
+/**
+ * Activity that acts as a hub to all of the app's functions. Mainly provides
+ * button links to other activities, but stores the current user and report list
+ * for other purposes as well.
+ */
 public class MainActivity extends AppCompatActivity {
+    // the user currently logged into the appliation
     public static User user;
     public static ReportList reportList = new ReportList();
 

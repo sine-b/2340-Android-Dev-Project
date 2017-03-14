@@ -3,19 +3,16 @@ package edu.gatech.cs2340.a2340_android_dev_project.controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import edu.gatech.cs2340.a2340_android_dev_project.model.Report;
-
-import static edu.gatech.cs2340.a2340_android_dev_project.controllers.R.layout.activity_report_details;
-
+/**
+ * Activity that displays a list of current reports, each of which can
+ * be pressed to display more information about them.
+ */
 public class ListReportActivity extends AppCompatActivity {
-
     private ListView reportListView;
 
     @Override
@@ -40,6 +37,13 @@ public class ListReportActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Function for each ListView item's onClick method.
+     * Sends user to ReportDetailsActivity where detailed
+     * information about the report they tapped is displayed.
+     *
+     * @param v the view the onItemClickListener belongs to
+     */
     public void onReportPressed(View v) {
         Intent intent = new Intent(this, ReportDetailsActivity.class);
         startActivity(intent);

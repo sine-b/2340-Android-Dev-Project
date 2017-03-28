@@ -16,6 +16,9 @@ import edu.gatech.cs2340.a2340_android_dev_project.model.PurityReport;
 import edu.gatech.cs2340.a2340_android_dev_project.model.ConditionType;
 import edu.gatech.cs2340.a2340_android_dev_project.model.Report;
 
+/**
+ * Activity that handles submitting purity reports
+ */
 public class SubmitPurityActivity extends AppCompatActivity {
     private Spinner conditionSpinner;
     private boolean locationSelected = false;

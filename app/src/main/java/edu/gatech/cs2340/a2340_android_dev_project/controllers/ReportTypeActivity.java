@@ -23,7 +23,13 @@ public class ReportTypeActivity extends AppCompatActivity {
             }
         });
 
-        // write the code here
+        Button goToPurityReportButton = (Button) findViewById(R.id.purity_report_button);
+        goToReportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onGoToPurityReportButtonPressed(view);
+            }
+        });
 
     }
 
@@ -35,6 +41,17 @@ public class ReportTypeActivity extends AppCompatActivity {
      */
     public void onGoToReportButtonPressed(View view) {
         Intent intent = new Intent(this, SubmitReportActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Function for the goToPurityReport button's onClick method.
+     * Takes the worker to the purity report submission screen.
+     *
+     * @param view the view the onClickListener belongs to
+     */
+    public void onGoToPurityReportButtonPressed(View view) {
+        Intent intent = new Intent(this, SubmitPurityActivity.class);
         startActivity(intent);
     }
 

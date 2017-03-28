@@ -7,6 +7,9 @@ public class PurityReport extends Report {
     private int id;
     private String reporter;
     private LatLng location;
+    private int virusNumber;
+    private int contaminantNumber;
+    private ConditionType conditionType;
 
     /**
      * Gets the date, in MMDDYYYY format, this
@@ -16,6 +19,24 @@ public class PurityReport extends Report {
      */
     public String getDate() {
         return date;
+    }
+
+    /**
+     * Gets the virus PPM
+     *
+     * @return the virus PPM
+     */
+    public int getVirus() {
+        return virusNumber;
+    }
+
+    /**
+     * Gets the contaminant PPM
+     *
+     * @return the contaminant PPM
+     */
+    public int getContaminant() {
+        return contaminantNumber;
     }
 
     /**
@@ -45,6 +66,16 @@ public class PurityReport extends Report {
      */
     public LatLng getLocation() {
         return location;
+    }
+
+    /**
+     * Returns a string representation of the
+     * water source's condition type
+     *
+     * @return the condition type of the water
+     */
+    public ConditionType getConditionType() {
+        return conditionType;
     }
 
     /**
@@ -87,8 +118,35 @@ public class PurityReport extends Report {
         this.location = location;
     }
 
+    /**
+     * Sets the virus PPM
+     *
+     * @param virusNumber the virus PPM
+     */
+    public void setVirusNumber(int virusNumber) {
+        this.virusNumber = virusNumber;
+    }
+
+    /**
+     * Sets the contaminant PPM
+     *
+     * @param contaminantNumber the contaminant PPM
+     */
+    public void setContaminantNumber(int contaminantNumber) {
+        this.contaminantNumber = contaminantNumber;
+    }
+
+    /**
+     * Sets the condition type of the water
+     *
+     * @param conditionType the current condition of the water
+     */
+    public void setConditionType(ConditionType conditionType) {
+        this.conditionType = conditionType;
+    }
+
     @Override
     public String toString() {
-        return id + " - " + ", "  ;
+        return id + " - " + conditionType + ", " + "Virus PPM: " + virusNumber + "Contaminant PPM: " + contaminantNumber;
     }
 }

@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
      * @param v the view the OnClickListener belongs to
      */
     public void onSubmitButtonPressed(View v) {
-        if (user.getType().equals(AccType.WORKER)) {
+        if (user.getType().equals(AccType.WORKER) || user.getType().equals(AccType.MANAGER)) {
             Intent intent = new Intent(this, ReportTypeActivity.class);
             startActivity(intent);
         } else {

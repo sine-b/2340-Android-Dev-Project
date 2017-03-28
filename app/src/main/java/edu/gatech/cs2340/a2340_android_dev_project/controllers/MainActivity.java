@@ -120,8 +120,13 @@ public class MainActivity extends AppCompatActivity {
      * @param v the view the OnClickListener belongs to
      */
     public void onListButtonPressed(View v) {
-        Intent intent = new Intent(this, ListReportActivity.class);
-        startActivity(intent);
+        if (user.getType().equals(AccType.WORKER) || user.getType().equals(AccType.MANAGER)) {
+            Intent intent = new Intent(this, ListChoiceActivity.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, ListReportActivity.class);
+            startActivity(intent);
+        }
     }
 
     /**

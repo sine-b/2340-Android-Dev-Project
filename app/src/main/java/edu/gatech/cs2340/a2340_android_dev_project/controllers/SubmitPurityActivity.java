@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 
-import edu.gatech.cs2340.a2340_android_dev_project.model.Report;
+import edu.gatech.cs2340.a2340_android_dev_project.model.PurityReport;
 import edu.gatech.cs2340.a2340_android_dev_project.model.ConditionType;
 public class SubmitPurityActivity extends AppCompatActivity {
     private Spinner conditionSpinner;
@@ -100,7 +100,7 @@ public class SubmitPurityActivity extends AppCompatActivity {
         } else {
             PurityReport newReport = new PurityReport();
             newReport.setLocation(SelectLocationActivity.getLocation());
-            newReport.setWaterCondition((ConditionType) conditionSpinner.getSelectedItem());
+            newReport.setType((ConditionType) conditionSpinner.getSelectedItem());
 
             MainActivity.reportList.addReport(newReport);
 

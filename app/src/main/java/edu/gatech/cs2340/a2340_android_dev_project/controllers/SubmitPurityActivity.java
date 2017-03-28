@@ -16,11 +16,11 @@ import com.google.android.gms.maps.model.LatLng;
 
 import edu.gatech.cs2340.a2340_android_dev_project.model.PurityReport;
 import edu.gatech.cs2340.a2340_android_dev_project.model.ConditionType;
+import edu.gatech.cs2340.a2340_android_dev_project.model.Report;
+
 public class SubmitPurityActivity extends AppCompatActivity {
     private Spinner conditionSpinner;
     private boolean locationSelected = false;
-    private String virusNumber;
-    private int contaminantNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,20 +52,6 @@ public class SubmitPurityActivity extends AppCompatActivity {
             }
         });
 
-        // event handler for the virus num
-        final EditText virusNumInput = (EditText) findViewById(R.id.virusNum);
-        virusNumInput.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                virusNumber = s;
-            }
-        });
     }
 
     /**
@@ -94,13 +80,19 @@ public class SubmitPurityActivity extends AppCompatActivity {
      * @param v the view the OnClickListener belongs to
      */
     public void onSubmitReportButtonPressed(View v) {
+
+        EditText virusNumber = (EditText) findViewById(R.id.virusNum);
+        EditText contaminantNumber = (EditText) findViewById(R.id.contaminantNum);
+
+        int virusNum = (int) Integer.parseInt(virusNumber.getText().toString());
+        int contaminantNum = (int) Integer.parseInt(contaminantNumber.getText().toString());
+
         if (!locationSelected) {
             Toast error = Toast.makeText(getApplicationContext(), "You need to select a location first", Toast.LENGTH_SHORT);
             error.show();
         } else {
-            PurityReport newReport = new PurityReport();
+            Report newReport = new PurityReport();
             newReport.setLocation(SelectLocationActivity.getLocation());
-            newReport.setType((ConditionType) conditionSpinner.getSelectedItem());
 
             MainActivity.reportList.addReport(newReport);
 

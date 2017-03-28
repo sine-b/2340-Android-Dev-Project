@@ -2,12 +2,11 @@ package edu.gatech.cs2340.a2340_android_dev_project.model;
 
 import com.google.android.gms.maps.model.LatLng;
 
-public class PurityReport {
+public class PurityReport extends Report {
     private String date;
     private int id;
     private String reporter;
     private LatLng location;
-    private ConditionType type;
 
     /**
      * Gets the date, in MMDDYYYY format, this
@@ -46,16 +45,6 @@ public class PurityReport {
      */
     public LatLng getLocation() {
         return location;
-    }
-
-    /**
-     * Returns an enum value describing the condition
-     * of water source the report details.
-     *
-     * @return a ConditionType value corresponding to the source type
-     */
-    public ConditionType getType() {
-        return type;
     }
 
     /**
@@ -98,18 +87,8 @@ public class PurityReport {
         this.location = location;
     }
 
-    /**
-     * Sets the type of water source.
-     *
-     * @param type the ConditionType value that describes the condition of water source.
-     */
-    public void setType(ConditionType type) {
-        this.type = type;
-    }
-
-
     @Override
     public String toString() {
-        return id + " - " + type + ", "  ;
+        return id + " - " + ", "  ;
     }
 }

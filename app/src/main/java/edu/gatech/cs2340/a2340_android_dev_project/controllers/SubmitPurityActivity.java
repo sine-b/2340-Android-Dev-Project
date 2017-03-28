@@ -42,7 +42,7 @@ public class SubmitPurityActivity extends AppCompatActivity {
         });
 
         // event handler for the submit button
-        Button submitReportButton = (Button) findViewById(R.id.submitReportButton);
+        Button submitReportButton = (Button) findViewById(R.id.submitPurityButton);
         submitReportButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

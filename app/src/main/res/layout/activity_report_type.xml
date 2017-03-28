@@ -11,10 +11,10 @@
         android:layout_width="166dp"
         android:layout_height="64dp"
         android:text="Report"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="129dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="159dp" />
+        android:layout_marginTop="-216dp" />
 
     <Button
         android:id="@+id/purity_report_button"

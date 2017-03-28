@@ -15,6 +15,7 @@ import edu.gatech.cs2340.a2340_android_dev_project.model.Report;
 import edu.gatech.cs2340.a2340_android_dev_project.model.ConditionType;
 public class SubmitPurityActivity extends AppCompatActivity {
     private Spinner conditionSpinner;
+    private boolean locationSelected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,5 +37,22 @@ public class SubmitPurityActivity extends AppCompatActivity {
                 onSelectLocationButtonPressed(view);
             }
         });
+    }
+
+    /**
+     * Function for the select location button's onClick method.
+     * Sends the user to a map screen where they can tap the location
+     * of a water source.
+     *
+     * @param v the view the OnClickListener belongs to
+     */
+    public void onSelectLocationButtonPressed(View v) {
+        Intent intent = new Intent(this, SelectLocationActivity.class);
+        startActivity(intent);
+
+        locationSelected = true;
+
+        Button button = (Button) findViewById(R.id.locationSelectButton);
+        button.setText("Ok!");
     }
 }

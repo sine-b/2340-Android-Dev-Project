@@ -65,7 +65,7 @@ public class SubmitPurityActivity extends AppCompatActivity {
 
         locationSelected = true;
 
-        Button button = (Button) findViewById(R.id.locationSelectButton);
+        Button button = (Button) findViewById(R.id.locationSelecterButton);
         button.setText("Ok!");
     }
 

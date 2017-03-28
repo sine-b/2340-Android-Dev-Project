@@ -3,9 +3,12 @@ package edu.gatech.cs2340.a2340_android_dev_project.controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -16,7 +19,7 @@ import edu.gatech.cs2340.a2340_android_dev_project.model.ConditionType;
 public class SubmitPurityActivity extends AppCompatActivity {
     private Spinner conditionSpinner;
     private boolean locationSelected = false;
-    private int virusNum;
+    private String virusNumber;
     private int contaminantNum;
 
     @Override
@@ -50,7 +53,19 @@ public class SubmitPurityActivity extends AppCompatActivity {
         });
 
         // event handler for the virus num
-        Number virusNumInput = (Number) findViewById(R.id.virusNum);
+        final EditText virusNumInput = (EditText) findViewById(R.id.virusNum);
+        virusNumInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                virusNumber = s;
+            }
+        });
     }
 
     /**

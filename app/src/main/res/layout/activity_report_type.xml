@@ -6,4 +6,19 @@
     android:layout_height="match_parent"
     tools:context="edu.gatech.cs2340.a2340_android_dev_project.controllers.ReportTypeActivity">
 
+    <Button
+        android:id="@+id/report_button"
+        android:layout_width="166dp"
+        android:layout_height="64dp"
+        android:text="Report"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="145dp" />
+
+    <Button
+        android:id="@+id/purity_report_button"
+        android:layout_width="166dp"
+        android:layout_height="64dp"
+        android:text="Purity Report"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="264dp" />
 </android.support.constraint.ConstraintLayout>

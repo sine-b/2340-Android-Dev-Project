@@ -1,18 +1,18 @@
 package edu.gatech.cs2340.a2340_android_dev_project.model;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 import edu.gatech.cs2340.a2340_android_dev_project.controllers.RegisterActivity;
 
 /**
- * Class that defines methods for and stores the current list of reports.
+ * Class that defines methods for and stores the current list of purity reports.
  * Utilizes an ArrayList to hold the reports.
  */
-public class ReportList {
-    ArrayList<Report> reportList = new ArrayList<>();
+public class PurityReportList {
+    ArrayList<PurityReport> purityReportList = new ArrayList<>();
     int idCounter = 0;
 
     /**
@@ -21,8 +21,8 @@ public class ReportList {
      *
      * @return an ArrayList of all current reports
      */
-    public ArrayList<Report> getReportList() {
-        return reportList;
+    public ArrayList<PurityReport> getReportList() {
+        return purityReportList;
     }
 
     /**
@@ -31,13 +31,13 @@ public class ReportList {
      *
      * @param report the Report to be added
      */
-    public void addReport(Report report) {
+    public void addReport(PurityReport report) {
         report.setId(idCounter);
         report.setReporter(RegisterActivity.user.getUser());
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy HH:mm");
         Date date = new Date();
         report.setDate(dateFormat.format(date));
-        reportList.add(report);
+        purityReportList.add(report);
         idCounter++;
     }
 }

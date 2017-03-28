@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import edu.gatech.cs2340.a2340_android_dev_project.controllers.R;
-import edu.gatech.cs2340.a2340_android_dev_project.model.UserList;
-
+/**
+ * Activity that acts as a gateway to either login or registration. The first
+ * screen the user sees when opening the app.
+ */
 public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

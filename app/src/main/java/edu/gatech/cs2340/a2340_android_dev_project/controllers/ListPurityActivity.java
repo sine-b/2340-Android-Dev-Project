@@ -9,20 +9,20 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 /**
- * Activity that displays a list of current reports, each of which can
+ * Activity that displays a list of current purity reports, each of which can
  * be pressed to display more information about them.
  */
-public class ListReportActivity extends AppCompatActivity {
+public class ListPurityActivity extends AppCompatActivity {
     private ListView reportListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_report);
+        setContentView(R.layout.activity_list_purity);
 
         // set up list view
         reportListView = (ListView) findViewById(R.id.reportListView);
-        ArrayAdapter<String> listAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, MainActivity.reportList.getReportList());
+        ArrayAdapter<String> listAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, MainActivity.purityReportList.getReportList());
         reportListView.setAdapter(listAdapter);
 
         // event handler for report on list
@@ -30,7 +30,7 @@ public class ListReportActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                ReportDetailsActivity.setReport(MainActivity.reportList.getReportList().get(position));
+                PurityDetailsActivity.setReport(MainActivity.purityReportList.getReportList().get(position));
                 onReportPressed(view);
 
             }
@@ -45,7 +45,7 @@ public class ListReportActivity extends AppCompatActivity {
      * @param v the view the onItemClickListener belongs to
      */
     public void onReportPressed(View v) {
-        Intent intent = new Intent(this, ReportDetailsActivity.class);
+        Intent intent = new Intent(this, PurityDetailsActivity.class);
         startActivity(intent);
     }
 }

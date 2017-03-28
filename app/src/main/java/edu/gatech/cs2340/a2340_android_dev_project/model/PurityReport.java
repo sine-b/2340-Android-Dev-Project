@@ -2,17 +2,14 @@ package edu.gatech.cs2340.a2340_android_dev_project.model;
 
 import com.google.android.gms.maps.model.LatLng;
 
-/**
- * Class that specifies the attributes a Report can have and
- * defines getters and setters for each.
- */
-public class Report {
+public class PurityReport extends Report{
     private String date;
     private int id;
     private String reporter;
     private LatLng location;
-    private WaterType type;
-    private WaterCondition condition;
+    private int virusNumber;
+    private int contaminantNumber;
+    private ConditionType conditionType;
 
     /**
      * Gets the date, in MMDDYYYY format, this
@@ -22,6 +19,24 @@ public class Report {
      */
     public String getDate() {
         return date;
+    }
+
+    /**
+     * Gets the virus PPM
+     *
+     * @return the virus PPM
+     */
+    public int getVirus() {
+        return virusNumber;
+    }
+
+    /**
+     * Gets the contaminant PPM
+     *
+     * @return the contaminant PPM
+     */
+    public int getContaminant() {
+        return contaminantNumber;
     }
 
     /**
@@ -54,23 +69,13 @@ public class Report {
     }
 
     /**
-     * Returns an enum value describing the type
-     * of water source the report details.
+     * Returns a string representation of the
+     * water source's condition type
      *
-     * @return a WaterType value corresponding to the source type
+     * @return the condition type of the water
      */
-    public WaterType getType() {
-        return type;
-    }
-
-    /**
-     * Returns an enum value describing the condition
-     * of the water source the report details.
-     *
-     * @return a WaterCondition value corresponding to the source condition
-     */
-    public WaterCondition getCondition() {
-        return condition;
+    public ConditionType getConditionType() {
+        return conditionType;
     }
 
     /**
@@ -114,40 +119,36 @@ public class Report {
     }
 
     /**
-     * Sets the type of water source.
-     *
-     * @param type the WaterType value that describes the type of water source.
-     */
-    public void setType(WaterType type) {
-        this.type = type;
-    }
-
-    /**
-     * Sets the condition of water source.
-     *
-     * @param condition the WaterCondition value that describes the type of water source.
-     */
-    public void setCondition(WaterCondition condition) {
-        this.condition = condition;
-    }
-
-    /**
-     * Empty method for the parent class
-     *
-     * @param contaminantNumber the contaminant PPM
-     */
-    public void setContaminantNumber(int contaminantNumber) {}
-
-    /**
-     * Empty method for parent class
+     * Sets the virus PPM
      *
      * @param virusNumber the virus PPM
      */
-    public void setVirusNumber(int virusNumber) {}
-    public void setConditionType(ConditionType conditionType) {};
+    @Override
+    public void setVirusNumber(int virusNumber) {
+        this.virusNumber = virusNumber;
+    }
+
+    /**
+     * Sets the contaminant PPM
+     *
+     * @param contaminantNumber the contaminant PPM
+     */
+    @Override
+    public void setContaminantNumber(int contaminantNumber) {
+        this.contaminantNumber = contaminantNumber;
+    }
+
+    /**
+     * Sets the condition type of the water
+     *
+     * @param conditionType the current condition of the water
+     */
+    public void setConditionType(ConditionType conditionType) {
+        this.conditionType = conditionType;
+    }
 
     @Override
     public String toString() {
-        return id + " - " + type + ", " + condition;
+        return id + " - " + conditionType.toString() + ", " + "Virus PPM: " + virusNumber + " Contaminant PPM: " + contaminantNumber;
     }
 }

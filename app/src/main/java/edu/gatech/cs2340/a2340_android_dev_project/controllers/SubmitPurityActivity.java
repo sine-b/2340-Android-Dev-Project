@@ -6,45 +6,37 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import edu.gatech.cs2340.a2340_android_dev_project.model.PurityReport;
+import edu.gatech.cs2340.a2340_android_dev_project.model.ConditionType;
 import edu.gatech.cs2340.a2340_android_dev_project.model.Report;
-import edu.gatech.cs2340.a2340_android_dev_project.model.WaterCondition;
-import edu.gatech.cs2340.a2340_android_dev_project.model.WaterType;
 
 /**
- * Activity that handles the creation of new reports.
+ * Activity that handles submitting purity reports
  */
-public class SubmitReportActivity extends AppCompatActivity {
-    private Spinner typeSpinner;
+public class SubmitPurityActivity extends AppCompatActivity {
     private Spinner conditionSpinner;
     private boolean locationSelected = false;
-    private LatLng reportLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_submit_report);
-
-        // set up type spinner
-        typeSpinner = (Spinner) findViewById(R.id.typeSpinner);
-        ArrayAdapter<String> typeAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, WaterType.values());
-        typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        typeSpinner.setAdapter(typeAdapter);
-        typeSpinner.setSelection(WaterType.BOTTLED.ordinal());
+        setContentView(R.layout.activity_submit_purity);
 
         // set up condition spinner
         conditionSpinner = (Spinner) findViewById(R.id.conditionSpinner);
-        ArrayAdapter<String> conditionAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, WaterCondition.values());
-        conditionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        conditionSpinner.setAdapter(conditionAdapter);
-        conditionSpinner.setSelection(WaterCondition.POTABLE.ordinal());
+        ArrayAdapter<String> typeAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, ConditionType.values());
+        typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        conditionSpinner.setAdapter(typeAdapter);
+        conditionSpinner.setSelection(ConditionType.SAFE.ordinal());
 
         // event handler for the select location button
-        Button selectLocationButton = (Button) findViewById(R.id.locationSelectButton);
+        Button selectLocationButton = (Button) findViewById(R.id.locationSelecterButton);
         selectLocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,13 +45,14 @@ public class SubmitReportActivity extends AppCompatActivity {
         });
 
         // event handler for the submit button
-        Button submitReportButton = (Button) findViewById(R.id.submitReportButton);
+        Button submitReportButton = (Button) findViewById(R.id.submitPurityButton);
         submitReportButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onSubmitReportButtonPressed(view);
             }
         });
+
     }
 
     /**
@@ -75,7 +68,7 @@ public class SubmitReportActivity extends AppCompatActivity {
 
         locationSelected = true;
 
-        Button button = (Button) findViewById(R.id.locationSelectButton);
+        Button button = (Button) findViewById(R.id.locationSelecterButton);
         button.setText("Ok!");
     }
 
@@ -88,16 +81,31 @@ public class SubmitReportActivity extends AppCompatActivity {
      * @param v the view the OnClickListener belongs to
      */
     public void onSubmitReportButtonPressed(View v) {
+
+        EditText virusNumber = (EditText) findViewById(R.id.virusNum);
+        EditText contaminantNumber = (EditText) findViewById(R.id.contaminantNum);
+        int virusNum, contaminantNum;
+
+        try {
+            virusNum = Integer.parseInt(virusNumber.getText().toString());
+            contaminantNum = Integer.parseInt(contaminantNumber.getText().toString());
+        } catch (NumberFormatException e) {
+            Toast error = Toast.makeText(getApplicationContext(), "You need to specify virus and contaminant levels", Toast.LENGTH_SHORT);
+            error.show();
+            return;
+        }
+
         if (!locationSelected) {
             Toast error = Toast.makeText(getApplicationContext(), "You need to select a location first", Toast.LENGTH_SHORT);
             error.show();
         } else {
-            Report newReport = new Report();
+            PurityReport newReport = new PurityReport();
             newReport.setLocation(SelectLocationActivity.getLocation());
-            newReport.setType((WaterType) typeSpinner.getSelectedItem());
-            newReport.setCondition((WaterCondition) conditionSpinner.getSelectedItem());
+            newReport.setVirusNumber(virusNum);
+            newReport.setContaminantNumber(contaminantNum);
+            newReport.setConditionType((ConditionType) conditionSpinner.getSelectedItem());
 
-            MainActivity.reportList.addReport(newReport);
+            MainActivity.purityReportList.addReport(newReport);
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);

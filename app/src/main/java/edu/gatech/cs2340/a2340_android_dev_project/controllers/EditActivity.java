@@ -6,18 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 
-import edu.gatech.cs2340.a2340_android_dev_project.model.AccType;
 import edu.gatech.cs2340.a2340_android_dev_project.model.User;
-import edu.gatech.cs2340.a2340_android_dev_project.model.UserList;
 
 /**
- *
  * Handles creating the edit profile page as well as saving all of the user data
  */
-
 public class EditActivity extends AppCompatActivity {
     private EditText emailField;
     private EditText addressField;

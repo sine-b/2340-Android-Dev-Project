@@ -6,9 +6,7 @@ import java.util.HashMap;
 /**
  * Class that acts as a database of User objects.
  */
-
 public class UserList {
-
     Map<String, User> userList = new HashMap<>();
 
     /**
@@ -50,5 +48,4 @@ public class UserList {
             return false;
         }
     }
-
 }

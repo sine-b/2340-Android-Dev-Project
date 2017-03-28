@@ -8,10 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import edu.gatech.cs2340.a2340_android_dev_project.model.AccType;
-import edu.gatech.cs2340.a2340_android_dev_project.model.User;
+
 import edu.gatech.cs2340.a2340_android_dev_project.model.UserList;
 
+/**
+ * Activity that handles the login procedure. Capable of validating
+ * users as well as displaying an error for incorrect logins.
+ */
 public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

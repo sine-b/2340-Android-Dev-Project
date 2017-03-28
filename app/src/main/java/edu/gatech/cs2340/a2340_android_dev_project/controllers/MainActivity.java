@@ -6,12 +6,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import edu.gatech.cs2340.a2340_android_dev_project.model.AccType;
 import edu.gatech.cs2340.a2340_android_dev_project.model.ReportList;
+import edu.gatech.cs2340.a2340_android_dev_project.model.PurityReportList;
 import edu.gatech.cs2340.a2340_android_dev_project.model.User;
 
+/**
+ * Activity that acts as a hub to all of the app's functions. Mainly provides
+ * button links to other activities, but stores the current user and report list
+ * for other purposes as well.
+ */
 public class MainActivity extends AppCompatActivity {
+    // the user currently logged into the appliation
     public static User user;
     public static ReportList reportList = new ReportList();
+    public static PurityReportList purityReportList = new PurityReportList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,8 +104,13 @@ public class MainActivity extends AppCompatActivity {
      * @param v the view the OnClickListener belongs to
      */
     public void onSubmitButtonPressed(View v) {
-        Intent intent = new Intent(this, SubmitReportActivity.class);
-        startActivity(intent);
+        if (user.getType().equals(AccType.WORKER) || user.getType().equals(AccType.MANAGER)) {
+            Intent intent = new Intent(this, ReportTypeActivity.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, SubmitReportActivity.class);
+            startActivity(intent);
+        }
     }
 
     /**
@@ -106,8 +120,13 @@ public class MainActivity extends AppCompatActivity {
      * @param v the view the OnClickListener belongs to
      */
     public void onListButtonPressed(View v) {
-        Intent intent = new Intent(this, ListReportActivity.class);
-        startActivity(intent);
+        if (user.getType().equals(AccType.WORKER) || user.getType().equals(AccType.MANAGER)) {
+            Intent intent = new Intent(this, ListChoiceActivity.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, ListReportActivity.class);
+            startActivity(intent);
+        }
     }
 
     /**

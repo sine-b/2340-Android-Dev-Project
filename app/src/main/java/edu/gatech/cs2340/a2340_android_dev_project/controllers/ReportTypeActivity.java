@@ -24,7 +24,7 @@ public class ReportTypeActivity extends AppCompatActivity {
         });
 
         Button goToPurityReportButton = (Button) findViewById(R.id.purity_report_button);
-        goToReportButton.setOnClickListener(new View.OnClickListener() {
+        goToPurityReportButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onGoToPurityReportButtonPressed(view);

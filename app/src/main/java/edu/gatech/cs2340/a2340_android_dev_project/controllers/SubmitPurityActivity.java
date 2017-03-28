@@ -3,8 +3,6 @@ package edu.gatech.cs2340.a2340_android_dev_project.controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -28,7 +26,7 @@ public class SubmitPurityActivity extends AppCompatActivity {
         setContentView(R.layout.activity_submit_purity);
 
         // set up condition spinner
-        conditionSpinner = (Spinner) findViewById(R.id.typeSpinner);
+        conditionSpinner = (Spinner) findViewById(R.id.conditionSpinner);
         ArrayAdapter<String> typeAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, ConditionType.values());
         typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         conditionSpinner.setAdapter(typeAdapter);

@@ -51,7 +51,8 @@
         <activity
             android:name=".SelectLocationActivity"
             android:label="@string/title_activity_select_location" />
-        <activity android:name=".ReportDetailsActivity"></activity>
+        <activity android:name=".ReportDetailsActivity" />
+        <activity android:name=".SubmitPurityActivity"></activity>
     </application>
 
 </manifest>

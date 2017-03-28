@@ -30,7 +30,7 @@ public class ListPurityActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                ReportDetailsActivity.setReport(MainActivity.purityReportList.getReportList().get(position));
+                PurityDetailsActivity.setReport(MainActivity.purityReportList.getReportList().get(position));
                 onReportPressed(view);
 
             }
@@ -45,7 +45,7 @@ public class ListPurityActivity extends AppCompatActivity {
      * @param v the view the onItemClickListener belongs to
      */
     public void onReportPressed(View v) {
-        Intent intent = new Intent(this, ReportDetailsActivity.class);
+        Intent intent = new Intent(this, PurityDetailsActivity.class);
         startActivity(intent);
     }
 }

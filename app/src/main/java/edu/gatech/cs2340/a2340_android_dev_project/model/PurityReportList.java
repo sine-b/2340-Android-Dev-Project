@@ -12,7 +12,7 @@ import edu.gatech.cs2340.a2340_android_dev_project.controllers.RegisterActivity;
  * Utilizes an ArrayList to hold the reports.
  */
 public class PurityReportList {
-    ArrayList<Report> purityReportList = new ArrayList<>();
+    ArrayList<PurityReport> purityReportList = new ArrayList<>();
     int idCounter = 0;
 
     /**
@@ -21,7 +21,7 @@ public class PurityReportList {
      *
      * @return an ArrayList of all current reports
      */
-    public ArrayList<Report> getReportList() {
+    public ArrayList<PurityReport> getReportList() {
         return purityReportList;
     }
 

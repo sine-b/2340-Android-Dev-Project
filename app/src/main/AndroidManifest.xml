@@ -55,7 +55,8 @@
         <activity android:name=".ReportTypeActivity" />
         <activity android:name=".SubmitPurityActivity" />
         <activity android:name=".ListChoiceActivity" />
-        <activity android:name=".ListPurityActivity"></activity>
+        <activity android:name=".ListPurityActivity" />
+        <activity android:name=".PurityDetailsActivity"></activity>
     </application>
 
 </manifest>

@@ -4,7 +4,7 @@ package edu.gatech.cs2340.a2340_android_dev_project.model;
  * Enumeration that defines water conditions for purity reports
  */
 public enum ConditionType {
-    SAFE("SAFE"), TREATABLE("TREATABLE"), UNSAFE("UNSAFE");
+    SAFE("Safe"), TREATABLE("Treatable"), UNSAFE("Unsafe");
 
     private String rep;
 

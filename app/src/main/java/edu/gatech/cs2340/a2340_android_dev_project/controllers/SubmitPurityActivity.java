@@ -84,9 +84,16 @@ public class SubmitPurityActivity extends AppCompatActivity {
 
         EditText virusNumber = (EditText) findViewById(R.id.virusNum);
         EditText contaminantNumber = (EditText) findViewById(R.id.contaminantNum);
+        int virusNum, contaminantNum;
 
-        int virusNum = (int) Integer.parseInt(virusNumber.getText().toString());
-        int contaminantNum = (int) Integer.parseInt(contaminantNumber.getText().toString());
+        try {
+            virusNum = Integer.parseInt(virusNumber.getText().toString());
+            contaminantNum = Integer.parseInt(contaminantNumber.getText().toString());
+        } catch (NumberFormatException e) {
+            Toast error = Toast.makeText(getApplicationContext(), "You need to specify virus and contaminant levels", Toast.LENGTH_SHORT);
+            error.show();
+            return;
+        }
 
         if (!locationSelected) {
             Toast error = Toast.makeText(getApplicationContext(), "You need to select a location first", Toast.LENGTH_SHORT);

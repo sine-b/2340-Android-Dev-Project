@@ -133,6 +133,7 @@ public class Report {
 
     public void setContaminantNumber(int contaminantNumber) {}
     public void setVirusNumber(int virusNumber) {}
+    public void setConditionType(ConditionType conditionType) {};
 
     @Override
     public String toString() {

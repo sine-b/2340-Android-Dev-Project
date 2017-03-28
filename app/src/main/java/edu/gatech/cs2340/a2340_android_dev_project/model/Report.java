@@ -132,7 +132,7 @@ public class Report {
     }
 
     /**
-     * Empty method for parent class
+     * Empty method for the parent class
      *
      * @param contaminantNumber the contaminant PPM
      */

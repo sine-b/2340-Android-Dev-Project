@@ -131,6 +131,9 @@ public class Report {
         this.condition = condition;
     }
 
+    public void setContaminantNumber(int contaminantNumber) {}
+    public void setVirusNumber(int virusNumber) {}
+
     @Override
     public String toString() {
         return id + " - " + type + ", " + condition;

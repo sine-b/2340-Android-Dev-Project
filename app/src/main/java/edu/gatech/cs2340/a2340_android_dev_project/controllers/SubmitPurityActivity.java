@@ -91,6 +91,8 @@ public class SubmitPurityActivity extends AppCompatActivity {
         } else {
             Report newReport = new PurityReport();
             newReport.setLocation(SelectLocationActivity.getLocation());
+            newReport.setVirusNumber(virusNum);
+            newReport.setContaminantNumber(contaminantNum);
 
             MainActivity.reportList.addReport(newReport);
 

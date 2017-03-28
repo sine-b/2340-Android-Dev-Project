@@ -123,6 +123,7 @@ public class PurityReport extends Report {
      *
      * @param virusNumber the virus PPM
      */
+    @Override
     public void setVirusNumber(int virusNumber) {
         this.virusNumber = virusNumber;
     }
@@ -132,6 +133,7 @@ public class PurityReport extends Report {
      *
      * @param contaminantNumber the contaminant PPM
      */
+    @Override
     public void setContaminantNumber(int contaminantNumber) {
         this.contaminantNumber = contaminantNumber;
     }

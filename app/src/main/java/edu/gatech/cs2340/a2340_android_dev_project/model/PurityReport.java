@@ -2,7 +2,7 @@ package edu.gatech.cs2340.a2340_android_dev_project.model;
 
 import com.google.android.gms.maps.model.LatLng;
 
-public class PurityReport extends Report {
+public class PurityReport extends Report{
     private String date;
     private int id;
     private String reporter;

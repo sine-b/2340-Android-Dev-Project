@@ -31,7 +31,7 @@ public class PurityReportList {
      *
      * @param report the Report to be added
      */
-    public void addReport(Report report) {
+    public void addReport(PurityReport report) {
         report.setId(idCounter);
         report.setReporter(RegisterActivity.user.getUser());
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy HH:mm");

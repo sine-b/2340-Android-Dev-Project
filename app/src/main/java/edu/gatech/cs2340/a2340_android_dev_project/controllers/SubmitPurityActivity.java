@@ -92,13 +92,13 @@ public class SubmitPurityActivity extends AppCompatActivity {
             Toast error = Toast.makeText(getApplicationContext(), "You need to select a location first", Toast.LENGTH_SHORT);
             error.show();
         } else {
-            Report newReport = new PurityReport();
+            PurityReport newReport = new PurityReport();
             newReport.setLocation(SelectLocationActivity.getLocation());
             newReport.setVirusNumber(virusNum);
             newReport.setContaminantNumber(contaminantNum);
             newReport.setConditionType((ConditionType) conditionSpinner.getSelectedItem());
 
-            MainActivity.reportList.addReport(newReport);
+            MainActivity.purityReportList.addReport(newReport);
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);

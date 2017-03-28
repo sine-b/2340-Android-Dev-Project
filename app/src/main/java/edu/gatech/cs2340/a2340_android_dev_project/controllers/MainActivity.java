@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import edu.gatech.cs2340.a2340_android_dev_project.model.AccType;
 import edu.gatech.cs2340.a2340_android_dev_project.model.ReportList;
+import edu.gatech.cs2340.a2340_android_dev_project.model.PurityReportList;
 import edu.gatech.cs2340.a2340_android_dev_project.model.User;
 
 /**
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     // the user currently logged into the appliation
     public static User user;
     public static ReportList reportList = new ReportList();
+    public static PurityReportList purityReportList = new PurityReportList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -8,6 +8,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+/**
+ * Activity that displays a list of current purity reports, each of which can
+ * be pressed to display more information about them.
+ */
 public class ListPurityActivity extends AppCompatActivity {
     private ListView reportListView;
 

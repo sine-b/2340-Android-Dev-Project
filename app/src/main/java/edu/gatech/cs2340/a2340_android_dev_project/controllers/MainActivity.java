@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import edu.gatech.cs2340.a2340_android_dev_project.model.AccType;
 import edu.gatech.cs2340.a2340_android_dev_project.model.ReportList;
 import edu.gatech.cs2340.a2340_android_dev_project.model.User;
 
@@ -101,8 +102,13 @@ public class MainActivity extends AppCompatActivity {
      * @param v the view the OnClickListener belongs to
      */
     public void onSubmitButtonPressed(View v) {
-        Intent intent = new Intent(this, SubmitReportActivity.class);
-        startActivity(intent);
+        if (user.getType().equals(AccType.WORKER)) {
+            Intent intent = new Intent(this, ReportTypeActivity.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, SubmitReportActivity.class);
+            startActivity(intent);
+        }
     }
 
     /**

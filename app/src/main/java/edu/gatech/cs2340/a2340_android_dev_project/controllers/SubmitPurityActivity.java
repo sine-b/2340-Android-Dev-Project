@@ -16,6 +16,8 @@ import edu.gatech.cs2340.a2340_android_dev_project.model.ConditionType;
 public class SubmitPurityActivity extends AppCompatActivity {
     private Spinner conditionSpinner;
     private boolean locationSelected = false;
+    private int virusNum;
+    private int contaminantNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,18 @@ public class SubmitPurityActivity extends AppCompatActivity {
                 onSelectLocationButtonPressed(view);
             }
         });
+
+        // event handler for the submit button
+        Button submitReportButton = (Button) findViewById(R.id.submitReportButton);
+        submitReportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onSubmitReportButtonPressed(view);
+            }
+        });
+
+        // event handler for the virus num
+        Number virusNumInput = (Number) findViewById(R.id.virusNum);
     }
 
     /**
@@ -54,5 +68,29 @@ public class SubmitPurityActivity extends AppCompatActivity {
 
         Button button = (Button) findViewById(R.id.locationSelectButton);
         button.setText("Ok!");
+    }
+
+    /**
+     * Function for the submit report button's onClick method.
+     * Creates a new report from the entered information and
+     * adds it to the report list. Once done, the user is sent
+     * back to the main screen.
+     *
+     * @param v the view the OnClickListener belongs to
+     */
+    public void onSubmitReportButtonPressed(View v) {
+        if (!locationSelected) {
+            Toast error = Toast.makeText(getApplicationContext(), "You need to select a location first", Toast.LENGTH_SHORT);
+            error.show();
+        } else {
+            PurityReport newReport = new PurityReport();
+            newReport.setLocation(SelectLocationActivity.getLocation());
+            newReport.setWaterCondition((ConditionType) conditionSpinner.getSelectedItem());
+
+            MainActivity.reportList.addReport(newReport);
+
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 }

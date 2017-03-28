@@ -38,22 +38,23 @@
         tools:layout_editor_absoluteY="67dp" />
 
     <EditText
-        android:id="@+id/virusText"
+        android:id="@+id/virusNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:text="Virus PPM"
         tools:layout_editor_absoluteX="83dp"
         tools:layout_editor_absoluteY="232dp" />
 
     <EditText
-        android:id="@+id/contaminantText"
+        android:id="@+id/contaminantNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:text="Contaminant PPM"
         tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="312dp" />
+        tools:layout_editor_absoluteY="316dp" />
+
 </android.support.constraint.ConstraintLayout>

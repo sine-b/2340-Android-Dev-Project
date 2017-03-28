@@ -149,6 +149,6 @@ public class PurityReport extends Report {
 
     @Override
     public String toString() {
-        return id + " - " + conditionType + ", " + "Virus PPM: " + virusNumber + "Contaminant PPM: " + contaminantNumber;
+        return id + " - " + conditionType.toString() + ", " + "Virus PPM: " + virusNumber + " Contaminant PPM: " + contaminantNumber;
     }
 }

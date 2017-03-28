@@ -131,8 +131,20 @@ public class Report {
         this.condition = condition;
     }
 
+    /**
+     * Empty method for the parent class
+     *
+     * @param contaminantNumber the contaminant PPM
+     */
     public void setContaminantNumber(int contaminantNumber) {}
+
+    /**
+     * Empty method for parent class
+     *
+     * @param virusNumber the virus PPM
+     */
     public void setVirusNumber(int virusNumber) {}
+    public void setConditionType(ConditionType conditionType) {};
 
     @Override
     public String toString() {

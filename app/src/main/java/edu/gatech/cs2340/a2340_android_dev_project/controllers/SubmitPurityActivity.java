@@ -16,6 +16,9 @@ import edu.gatech.cs2340.a2340_android_dev_project.model.PurityReport;
 import edu.gatech.cs2340.a2340_android_dev_project.model.ConditionType;
 import edu.gatech.cs2340.a2340_android_dev_project.model.Report;
 
+/**
+ * Activity that handles submitting purity reports
+ */
 public class SubmitPurityActivity extends AppCompatActivity {
     private Spinner conditionSpinner;
     private boolean locationSelected = false;
@@ -93,6 +96,7 @@ public class SubmitPurityActivity extends AppCompatActivity {
             newReport.setLocation(SelectLocationActivity.getLocation());
             newReport.setVirusNumber(virusNum);
             newReport.setContaminantNumber(contaminantNum);
+            newReport.setConditionType((ConditionType) conditionSpinner.getSelectedItem());
 
             MainActivity.reportList.addReport(newReport);
 

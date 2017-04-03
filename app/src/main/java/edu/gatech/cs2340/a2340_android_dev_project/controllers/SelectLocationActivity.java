@@ -10,7 +10,7 @@ import com.google.android.gms.maps.model.LatLng;
 
 /**
  * Activity that opens a GoogleMap and listens for a tap, then registers a new report
- * with that location saved as a LatLng.
+ * with that location saved as a MyLatLng.
  */
 public class SelectLocationActivity extends FragmentActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
@@ -46,7 +46,7 @@ public class SelectLocationActivity extends FragmentActivity implements OnMapRea
      * typically the location just selected by the
      * user within the map.
      *
-     * @return the last tapped LatLng on the map
+     * @return the last tapped MyLatLng on the map
      */
     public static LatLng getLocation() {
         return location;

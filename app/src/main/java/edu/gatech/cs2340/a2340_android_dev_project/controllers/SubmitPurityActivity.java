@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.database.DatabaseReference;
 
+import edu.gatech.cs2340.a2340_android_dev_project.model.MyLatLng;
 import edu.gatech.cs2340.a2340_android_dev_project.model.PurityReport;
 import edu.gatech.cs2340.a2340_android_dev_project.model.ConditionType;
 import edu.gatech.cs2340.a2340_android_dev_project.model.Report;
@@ -31,7 +32,8 @@ public class SubmitPurityActivity extends AppCompatActivity {
 
         // set up condition spinner
         conditionSpinner = (Spinner) findViewById(R.id.conditionSpinner);
-        ArrayAdapter<String> typeAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, ConditionType.values());
+        ArrayAdapter<String> typeAdapter = new ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, ConditionType.values());
         typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         conditionSpinner.setAdapter(typeAdapter);
         conditionSpinner.setSelection(ConditionType.SAFE.ordinal());
@@ -91,17 +93,20 @@ public class SubmitPurityActivity extends AppCompatActivity {
             virusNum = Integer.parseInt(virusNumber.getText().toString());
             contaminantNum = Integer.parseInt(contaminantNumber.getText().toString());
         } catch (NumberFormatException e) {
-            Toast error = Toast.makeText(getApplicationContext(), "You need to specify virus and contaminant levels", Toast.LENGTH_SHORT);
+            Toast error = Toast.makeText(getApplicationContext(),
+                    "You need to specify virus and contaminant levels", Toast.LENGTH_SHORT);
             error.show();
             return;
         }
 
         if (!locationSelected) {
-            Toast error = Toast.makeText(getApplicationContext(), "You need to select a location first", Toast.LENGTH_SHORT);
+            Toast error = Toast.makeText(getApplicationContext(),
+                    "You need to select a location first", Toast.LENGTH_SHORT);
             error.show();
         } else {
             PurityReport newReport = new PurityReport();
-            newReport.setLocation(SelectLocationActivity.getLocation());
+            newReport.setLocation(new MyLatLng(SelectLocationActivity.getLocation().latitude,
+                    SelectLocationActivity.getLocation().longitude));
             newReport.setVirusNumber(virusNum);
             newReport.setContaminantNumber(contaminantNum);
             newReport.setConditionType((ConditionType) conditionSpinner.getSelectedItem());

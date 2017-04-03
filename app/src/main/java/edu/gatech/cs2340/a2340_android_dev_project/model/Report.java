@@ -10,7 +10,7 @@ public class Report {
     private String date;
     private int id;
     private String reporter;
-    private LatLng location;
+    private MyLatLng location;
     private WaterType type;
     private WaterCondition condition;
 
@@ -45,11 +45,11 @@ public class Report {
     }
 
     /**
-     * Returns the location of the report, in LatLng
+     * Returns the location of the report, in MyLatLng
      *
-     * @return a LatLng of the report's location
+     * @return a MyLatLng of the report's location
      */
-    public LatLng getLocation() {
+    public MyLatLng getLocation() {
         return location;
     }
 
@@ -105,11 +105,11 @@ public class Report {
     }
 
     /**
-     * Sets the location of the report to the specified LatLng.
+     * Sets the location of the report to the specified MyLatLng.
      *
-     * @param location the new location of the report, in LatLng
+     * @param location the new location of the report, in MyLatLng
      */
-    public void setLocation(LatLng location) {
+    public void setLocation(MyLatLng location) {
         this.location = location;
     }
 

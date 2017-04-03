@@ -39,7 +39,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // populate map with nearby water reports
         for (Report report : MainActivity.getReportList().getReportList()) {
-            LatLng latLng = report.getLocation();
+            LatLng latLng = new LatLng(report.getLocation().getLatitude(),
+                    report.getLocation().getLongitude());
             mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
             MarkerOptions markerOptions = new MarkerOptions();
             markerOptions.position(latLng);

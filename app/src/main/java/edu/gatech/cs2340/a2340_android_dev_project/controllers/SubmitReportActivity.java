@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.database.DatabaseReference;
 
+import edu.gatech.cs2340.a2340_android_dev_project.model.MyLatLng;
 import edu.gatech.cs2340.a2340_android_dev_project.model.Report;
 import edu.gatech.cs2340.a2340_android_dev_project.model.WaterCondition;
 import edu.gatech.cs2340.a2340_android_dev_project.model.WaterType;
@@ -23,7 +24,6 @@ public class SubmitReportActivity extends AppCompatActivity {
     private Spinner typeSpinner;
     private Spinner conditionSpinner;
     private boolean locationSelected = false;
-    private LatLng reportLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,11 +90,13 @@ public class SubmitReportActivity extends AppCompatActivity {
      */
     public void onSubmitReportButtonPressed(View v) {
         if (!locationSelected) {
-            Toast error = Toast.makeText(getApplicationContext(), "You need to select a location first", Toast.LENGTH_SHORT);
+            Toast error = Toast.makeText(getApplicationContext(),
+                    "You need to select a location first", Toast.LENGTH_SHORT);
             error.show();
         } else {
             Report newReport = new Report();
-            newReport.setLocation(SelectLocationActivity.getLocation());
+            newReport.setLocation(new MyLatLng(SelectLocationActivity.getLocation().latitude,
+                    SelectLocationActivity.getLocation().longitude));
             newReport.setType((WaterType) typeSpinner.getSelectedItem());
             newReport.setCondition((WaterCondition) conditionSpinner.getSelectedItem());
 

@@ -51,7 +51,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        // ensures the userList is up to date with the database with every change
+        // reads in the userList
         dataUserList.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

@@ -5,6 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import edu.gatech.cs2340.a2340_android_dev_project.model.AccType;
 import edu.gatech.cs2340.a2340_android_dev_project.model.ReportList;
@@ -18,10 +24,14 @@ import edu.gatech.cs2340.a2340_android_dev_project.model.UserList;
  * for other purposes as well.
  */
 public class MainActivity extends AppCompatActivity {
+    private DatabaseReference dataReportList =
+            WelcomeActivity.getDatabase().getReference("reportList");
+    private DatabaseReference dataPurityList =
+            WelcomeActivity.getDatabase().getReference("purityList");
     private static User user;
     private static UserList userList;
-    private static ReportList reportList = new ReportList();
-    private static PurityReportList purityReportList = new PurityReportList();
+    private static ReportList reportList;
+    private static PurityReportList purityReportList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +80,36 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onMapButtonPressed(view);
+            }
+        });
+
+        // reads in the reportList
+        dataReportList.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                reportList = dataSnapshot.getValue(ReportList.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast toast = Toast.makeText(getApplicationContext(), "Couldn't get the data...",
+                        Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
+
+        // reads in the purityList
+        dataPurityList.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                purityReportList = dataSnapshot.getValue(PurityReportList.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast toast = Toast.makeText(getApplicationContext(), "Couldn't get the data...",
+                        Toast.LENGTH_SHORT);
+                toast.show();
             }
         });
     }

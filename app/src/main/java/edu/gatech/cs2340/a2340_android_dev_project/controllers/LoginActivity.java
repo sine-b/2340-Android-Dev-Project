@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        // reads in the userList
         dataUserList.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

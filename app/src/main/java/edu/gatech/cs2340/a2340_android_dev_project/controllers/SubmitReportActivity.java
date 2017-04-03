@@ -10,6 +10,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.database.DatabaseReference;
 
 import edu.gatech.cs2340.a2340_android_dev_project.model.Report;
 import edu.gatech.cs2340.a2340_android_dev_project.model.WaterCondition;
@@ -98,6 +99,11 @@ public class SubmitReportActivity extends AppCompatActivity {
             newReport.setCondition((WaterCondition) conditionSpinner.getSelectedItem());
 
             MainActivity.getReportList().addReport(newReport);
+
+            // update database
+            DatabaseReference dataReportList =
+                    WelcomeActivity.getDatabase().getReference("reportList");
+            dataReportList.setValue(MainActivity.getReportList());
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);

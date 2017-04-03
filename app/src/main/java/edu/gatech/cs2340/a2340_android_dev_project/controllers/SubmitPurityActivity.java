@@ -105,7 +105,7 @@ public class SubmitPurityActivity extends AppCompatActivity {
             newReport.setContaminantNumber(contaminantNum);
             newReport.setConditionType((ConditionType) conditionSpinner.getSelectedItem());
 
-            MainActivity.purityReportList.addReport(newReport);
+            MainActivity.getPurityReportList().addReport(newReport);
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);

@@ -22,7 +22,9 @@ public class ListReportActivity extends AppCompatActivity {
 
         // set up list view
         reportListView = (ListView) findViewById(R.id.reportListView);
-        ArrayAdapter<String> listAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, MainActivity.reportList.getReportList());
+        ArrayAdapter<String> listAdapter = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1,
+                MainActivity.getReportList().getReportList());
         reportListView.setAdapter(listAdapter);
 
         // event handler for report on list
@@ -30,7 +32,8 @@ public class ListReportActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                ReportDetailsActivity.setReport(MainActivity.reportList.getReportList().get(position));
+                ReportDetailsActivity.setReport(MainActivity
+                        .getReportList().getReportList().get(position));
                 onReportPressed(view);
 
             }

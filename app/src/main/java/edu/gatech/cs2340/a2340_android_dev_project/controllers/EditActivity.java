@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+
 import edu.gatech.cs2340.a2340_android_dev_project.model.User;
 
 /**
@@ -30,7 +32,7 @@ public class EditActivity extends AppCompatActivity {
         titleField = (EditText) findViewById(R.id.title);
         numberField = (EditText) findViewById(R.id.phoneNum);
         TextView type = (TextView)findViewById(R.id.type);
-        type.setText(MainActivity.user.getType().getValue());
+        type.setText(MainActivity.getUser().getType().getValue());
 
         // event handler for save button
         Button saveButton = (Button) findViewById(R.id.saveButton);
@@ -41,10 +43,10 @@ public class EditActivity extends AppCompatActivity {
             }
         });
 
-        emailField.setText(MainActivity.user.getEmail());
-        addressField.setText(MainActivity.user.getAddress());
-        titleField.setText(MainActivity.user.getTitle());
-        numberField.setText(MainActivity.user.getPhoneNum());
+        emailField.setText(MainActivity.getUser().getEmail());
+        addressField.setText(MainActivity.getUser().getAddress());
+        titleField.setText(MainActivity.getUser().getTitle());
+        numberField.setText(MainActivity.getUser().getPhoneNum());
     }
 
     /**
@@ -54,13 +56,17 @@ public class EditActivity extends AppCompatActivity {
      * @param v the view the OnClickListener belongs to
      */
     public void onSaveButtonPressed(View v) {
-        User user = RegisterActivity.user;
+        User user = MainActivity.getUser();
         user.setAddress(addressField.getText().toString());
         user.setEmail(emailField.getText().toString());
         user.setTitle(titleField.getText().toString());
         user.setPhoneNum(numberField.getText().toString());
-        MainActivity.user = user;
-        RegisterActivity.userList.addUser(user);
+        MainActivity.getUserList().addUser(user);
+
+        // update database
+        DatabaseReference dataUserList = WelcomeActivity.getDatabase().getReference("userList");
+        dataUserList.setValue(MainActivity.getUserList());
+
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

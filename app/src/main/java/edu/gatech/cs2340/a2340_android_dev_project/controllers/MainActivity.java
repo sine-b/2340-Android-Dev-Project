@@ -10,6 +10,7 @@ import edu.gatech.cs2340.a2340_android_dev_project.model.AccType;
 import edu.gatech.cs2340.a2340_android_dev_project.model.ReportList;
 import edu.gatech.cs2340.a2340_android_dev_project.model.PurityReportList;
 import edu.gatech.cs2340.a2340_android_dev_project.model.User;
+import edu.gatech.cs2340.a2340_android_dev_project.model.UserList;
 
 /**
  * Activity that acts as a hub to all of the app's functions. Mainly provides
@@ -17,17 +18,15 @@ import edu.gatech.cs2340.a2340_android_dev_project.model.User;
  * for other purposes as well.
  */
 public class MainActivity extends AppCompatActivity {
-    // the user currently logged into the appliation
-    public static User user;
-    public static ReportList reportList = new ReportList();
-    public static PurityReportList purityReportList = new PurityReportList();
+    private static User user;
+    private static UserList userList;
+    private static ReportList reportList = new ReportList();
+    private static PurityReportList purityReportList = new PurityReportList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        user = RegisterActivity.user;
 
         // event handler for the sign out button
         Button signOutButton = (Button) findViewById(R.id.signOutButton);
@@ -143,6 +142,81 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         // does nothing so logout feels more secure
+    }
+
+    /**
+     * Gets the user held by this activity.
+     *
+     * @return the current user in session
+     */
+    public static User getUser() {
+        return user;
+    }
+
+    /**
+     * Sets the new user in session by altering
+     * this activity's user parameter.
+     *
+     * @param newUser new user in session
+     */
+    public static void setUser(User newUser) {
+        user = newUser;
+    }
+
+    /**
+     * Gets a current copy of the userList.
+     *
+     * @return the current list of users registered
+     */
+    public static UserList getUserList() {
+        return userList;
+    }
+
+    /**
+     * Sets the userList for the app's reference.
+     *
+     * @param newUserList the current list of users registered
+     */
+    public static void setUserList(UserList newUserList) {
+        userList = newUserList;
+    }
+
+    /**
+     * Returns the current list of water reports.
+     *
+     * @return list of water reports
+     */
+    public static ReportList getReportList() {
+        return reportList;
+    }
+
+    /**
+     * Sets a new reportList to serve as the current
+     * list of reports.
+     *
+     * @param newReportList new list of water reports
+     */
+    public static void setReportList(ReportList newReportList) {
+        reportList = newReportList;
+    }
+
+    /**
+     * Returns the current list of purity reports.
+     *
+     * @return list of purity reports
+     */
+    public static PurityReportList getPurityReportList() {
+        return purityReportList;
+    }
+
+    /**
+     * Sets a new purityReportList to serve as the
+     * current list of purity reports.
+     *
+     * @param newPurityReportList new list of purity reports
+     */
+    public static void setPurityReportList(PurityReportList newPurityReportList) {
+        purityReportList = newPurityReportList;
     }
 
 }

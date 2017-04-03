@@ -97,7 +97,7 @@ public class SubmitReportActivity extends AppCompatActivity {
             newReport.setType((WaterType) typeSpinner.getSelectedItem());
             newReport.setCondition((WaterCondition) conditionSpinner.getSelectedItem());
 
-            MainActivity.reportList.addReport(newReport);
+            MainActivity.getReportList().addReport(newReport);
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);

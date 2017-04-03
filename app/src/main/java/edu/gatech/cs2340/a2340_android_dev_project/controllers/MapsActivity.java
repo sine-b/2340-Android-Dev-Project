@@ -38,7 +38,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // populate map with nearby water reports
-        for (Report report : MainActivity.reportList.getReportList()) {
+        for (Report report : MainActivity.getReportList().getReportList()) {
             LatLng latLng = report.getLocation();
             mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
             MarkerOptions markerOptions = new MarkerOptions();
@@ -54,7 +54,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     return false;
                 }
 
-                ReportDetailsActivity.setReport(MainActivity.reportList.getReportList().get(Integer.parseInt(marker.getTitle())));
+                ReportDetailsActivity.setReport(MainActivity.getReportList().getReportList()
+                        .get(Integer.parseInt(marker.getTitle())));
                 onMarkerPressed();
 
                 return true;

@@ -5,12 +5,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Activity that acts as a gateway to either login or registration. The first
  * screen the user sees when opening the app.
  */
 public class WelcomeActivity extends AppCompatActivity {
+    private static FirebaseDatabase database = FirebaseDatabase.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +42,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 onRegisterButtonPressed(view);
             }
         });
+
     }
 
     /**
@@ -60,5 +70,14 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         // does nothing so logout can't be circumvented
+    }
+
+    /**
+     * Returns an instance of the app's database
+     *
+     * @return instance of database
+     */
+    public static FirebaseDatabase getDatabase() {
+        return database;
     }
 }

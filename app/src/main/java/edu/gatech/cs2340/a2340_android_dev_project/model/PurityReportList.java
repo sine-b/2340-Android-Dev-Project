@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import edu.gatech.cs2340.a2340_android_dev_project.controllers.MainActivity;
 import edu.gatech.cs2340.a2340_android_dev_project.controllers.RegisterActivity;
 
 /**
@@ -33,7 +34,7 @@ public class PurityReportList {
      */
     public void addReport(PurityReport report) {
         report.setId(idCounter);
-        report.setReporter(RegisterActivity.user.getUser());
+        report.setReporter(MainActivity.getUser().getUser());
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy HH:mm");
         Date date = new Date();
         report.setDate(dateFormat.format(date));

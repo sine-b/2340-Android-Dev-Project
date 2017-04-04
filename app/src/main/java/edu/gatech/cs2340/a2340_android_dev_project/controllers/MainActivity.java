@@ -83,6 +83,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //event handler for the view water reports button
+        if (user.getType().equals(AccType.MANAGER) || user.getType().equals(AccType.ADMIN)) {
+            Button viewReport = (Button) findViewById(R.id.viewReports);
+            viewReport.setVisibility(View.VISIBLE);
+            viewReport.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onViewReportButtonPressed(view);
+                }
+            });
+        }
+
         // reads in the reportList
         dataReportList.addValueEventListener(new ValueEventListener() {
             @Override
@@ -177,6 +189,17 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onMapButtonPressed(View v) {
         Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Function for the view report button's onClick method.
+     * Sends the user to the report selection screen.
+     *
+     * @param v the view the OnClickListener belongs to
+     */
+    public void onViewReportButtonPressed(View v) {
+        Intent intent = new Intent(this, GetReportActivity.class);
         startActivity(intent);
     }
 

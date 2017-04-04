@@ -13,6 +13,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import edu.gatech.cs2340.a2340_android_dev_project.model.PurityReportList;
+import edu.gatech.cs2340.a2340_android_dev_project.model.ReportList;
+
 /**
  * Activity that acts as a gateway to either login or registration. The first
  * screen the user sees when opening the app.

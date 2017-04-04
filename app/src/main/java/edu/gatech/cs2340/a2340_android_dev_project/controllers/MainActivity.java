@@ -24,9 +24,9 @@ import edu.gatech.cs2340.a2340_android_dev_project.model.UserList;
  * for other purposes as well.
  */
 public class MainActivity extends AppCompatActivity {
-    private DatabaseReference dataReportList =
+    private static DatabaseReference dataReportList =
             WelcomeActivity.getDatabase().getReference("reportList");
-    private DatabaseReference dataPurityList =
+    private static DatabaseReference dataPurityList =
             WelcomeActivity.getDatabase().getReference("purityList");
     private static User user;
     private static UserList userList;
@@ -88,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 reportList = dataSnapshot.getValue(ReportList.class);
+                Toast toast = Toast.makeText(getApplicationContext(), "refereshing reports...", Toast.LENGTH_SHORT);
+                toast.show();
             }
 
             @Override
@@ -103,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 purityReportList = dataSnapshot.getValue(PurityReportList.class);
+                Toast toast = Toast.makeText(getApplicationContext(), "refereshing purity...", Toast.LENGTH_SHORT);
+                toast.show();
             }
 
             @Override
@@ -112,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 toast.show();
             }
         });
+
     }
 
     /**
@@ -257,6 +262,24 @@ public class MainActivity extends AppCompatActivity {
      */
     public static void setPurityReportList(PurityReportList newPurityReportList) {
         purityReportList = newPurityReportList;
+    }
+
+    /**
+     * Returns the reference to the database's reportList
+     *
+     * @return the reportList location in database
+     */
+    public static DatabaseReference getReportReference() {
+        return dataReportList;
+    }
+
+    /**
+     * Returns the reference to the database's purityList
+     *
+     * @return the purityList location in database
+     */
+    public static DatabaseReference getPurityReference() {
+        return dataPurityList;
     }
 
 }

@@ -114,9 +114,7 @@ public class SubmitPurityActivity extends AppCompatActivity {
             MainActivity.getPurityReportList().addReport(newReport);
 
             // update database
-            DatabaseReference dataPurityList =
-                    WelcomeActivity.getDatabase().getReference("purityList");
-            dataPurityList.setValue(MainActivity.getPurityReportList());
+            MainActivity.getPurityReference().setValue(MainActivity.getPurityReportList());
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);

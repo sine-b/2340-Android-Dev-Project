@@ -1,8 +1,10 @@
 package edu.gatech.cs2340.a2340_android_dev_project.model;
 
+import android.widget.Toast;
+
 import com.google.android.gms.maps.model.LatLng;
 
-public class PurityReport extends Report{
+public class PurityReport {
     private String date;
     private int id;
     private String reporter;
@@ -26,7 +28,7 @@ public class PurityReport extends Report{
      *
      * @return the virus PPM
      */
-    public int getVirus() {
+    public int getVirusNumber() {
         return virusNumber;
     }
 
@@ -35,7 +37,7 @@ public class PurityReport extends Report{
      *
      * @return the contaminant PPM
      */
-    public int getContaminant() {
+    public int getContaminantNumber() {
         return contaminantNumber;
     }
 
@@ -123,7 +125,6 @@ public class PurityReport extends Report{
      *
      * @param virusNumber the virus PPM
      */
-    @Override
     public void setVirusNumber(int virusNumber) {
         this.virusNumber = virusNumber;
     }
@@ -133,7 +134,6 @@ public class PurityReport extends Report{
      *
      * @param contaminantNumber the contaminant PPM
      */
-    @Override
     public void setContaminantNumber(int contaminantNumber) {
         this.contaminantNumber = contaminantNumber;
     }
@@ -149,6 +149,7 @@ public class PurityReport extends Report{
 
     @Override
     public String toString() {
-        return id + " - " + conditionType.toString() + ", " + "Virus PPM: " + virusNumber + " Contaminant PPM: " + contaminantNumber;
+        return id + " - " + conditionType.toString() + ", " + "Virus PPM: " + virusNumber +
+                " Contaminant PPM: " + contaminantNumber;
     }
 }

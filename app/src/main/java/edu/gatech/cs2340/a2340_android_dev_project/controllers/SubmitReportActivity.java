@@ -103,9 +103,7 @@ public class SubmitReportActivity extends AppCompatActivity {
             MainActivity.getReportList().addReport(newReport);
 
             // update database
-            DatabaseReference dataReportList =
-                    WelcomeActivity.getDatabase().getReference("reportList");
-            dataReportList.setValue(MainActivity.getReportList());
+            MainActivity.getReportReference().setValue(MainActivity.getReportList());
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);

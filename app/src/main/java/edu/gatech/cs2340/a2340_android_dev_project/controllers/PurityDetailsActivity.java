@@ -27,8 +27,8 @@ public class PurityDetailsActivity extends AppCompatActivity {
         purityId.setText("" + report.getId());
         purityWorker.setText(report.getReporter());
         purityCondition.setText(report.getConditionType().toString());
-        purityVirus.setText("" + report.getVirus());
-        purityContaminant.setText("" + report.getContaminant());
+        purityVirus.setText("" + report.getVirusNumber());
+        purityContaminant.setText("" + report.getContaminantNumber());
 
         Button purityDone = (Button) findViewById(R.id.purityDone);
         purityDone.setOnClickListener(new View.OnClickListener() {

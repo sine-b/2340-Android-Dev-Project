@@ -63,4 +63,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="33dp" />
 
+    <Button
+        android:id="@+id/writeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Write Changes"
+        android:layout_above="@+id/editProfileButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

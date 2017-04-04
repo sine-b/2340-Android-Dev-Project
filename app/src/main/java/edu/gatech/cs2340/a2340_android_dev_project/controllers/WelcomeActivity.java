@@ -5,16 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import edu.gatech.cs2340.a2340_android_dev_project.model.PurityReportList;
-import edu.gatech.cs2340.a2340_android_dev_project.model.ReportList;
 
 /**
  * Activity that acts as a gateway to either login or registration. The first

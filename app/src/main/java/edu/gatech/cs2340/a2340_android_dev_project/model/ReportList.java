@@ -6,7 +6,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import edu.gatech.cs2340.a2340_android_dev_project.controllers.MainActivity;
-import edu.gatech.cs2340.a2340_android_dev_project.controllers.RegisterActivity;
 
 /**
  * Class that defines methods for and stores the current list of reports.

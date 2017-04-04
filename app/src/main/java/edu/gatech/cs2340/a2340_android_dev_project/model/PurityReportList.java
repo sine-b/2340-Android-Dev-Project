@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import edu.gatech.cs2340.a2340_android_dev_project.controllers.MainActivity;
-import edu.gatech.cs2340.a2340_android_dev_project.controllers.RegisterActivity;
 
 /**
  * Class that defines methods for and stores the current list of purity reports.

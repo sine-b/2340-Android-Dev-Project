@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "608172328407-btrat6a3ikbktbp8piu2b80obuks6bvd.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "edu.gatech.cs2340.a2340_android_dev_project",
-            "certificate_hash": "dc7ea17f1d497ba0e25e794f95a8f56fe0f36425"
-          }
-        },
-        {
           "client_id": "608172328407-774c3ar6o73f3837l4ott674483b5483.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "608172328407-774c3ar6o73f3837l4ott674483b5483.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2

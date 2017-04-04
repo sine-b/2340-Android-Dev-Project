@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-//import edu.gatech.cs2340.a2340_android_dev_project.R;
-
 public class ReportTypeActivity extends AppCompatActivity {
 
     @Override

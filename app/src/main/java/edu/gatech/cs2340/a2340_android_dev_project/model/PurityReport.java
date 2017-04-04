@@ -1,8 +1,5 @@
 package edu.gatech.cs2340.a2340_android_dev_project.model;
 
-import android.widget.Toast;
-
-import com.google.android.gms.maps.model.LatLng;
 
 public class PurityReport {
     private String date;

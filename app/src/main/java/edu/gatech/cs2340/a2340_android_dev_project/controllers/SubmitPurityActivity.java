@@ -10,13 +10,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.model.LatLng;
-import com.google.firebase.database.DatabaseReference;
-
 import edu.gatech.cs2340.a2340_android_dev_project.model.MyLatLng;
 import edu.gatech.cs2340.a2340_android_dev_project.model.PurityReport;
 import edu.gatech.cs2340.a2340_android_dev_project.model.ConditionType;
-import edu.gatech.cs2340.a2340_android_dev_project.model.Report;
 
 /**
  * Activity that handles submitting purity reports

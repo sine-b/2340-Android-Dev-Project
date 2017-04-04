@@ -88,8 +88,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 reportList = dataSnapshot.getValue(ReportList.class);
-                Toast toast = Toast.makeText(getApplicationContext(), "refereshing reports...", Toast.LENGTH_SHORT);
-                toast.show();
             }
 
             @Override
@@ -105,8 +103,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 purityReportList = dataSnapshot.getValue(PurityReportList.class);
-                Toast toast = Toast.makeText(getApplicationContext(), "refereshing purity...", Toast.LENGTH_SHORT);
-                toast.show();
             }
 
             @Override

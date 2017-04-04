@@ -9,9 +9,6 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.model.LatLng;
-import com.google.firebase.database.DatabaseReference;
-
 import edu.gatech.cs2340.a2340_android_dev_project.model.MyLatLng;
 import edu.gatech.cs2340.a2340_android_dev_project.model.Report;
 import edu.gatech.cs2340.a2340_android_dev_project.model.WaterCondition;

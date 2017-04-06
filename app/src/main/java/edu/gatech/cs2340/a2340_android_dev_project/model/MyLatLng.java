@@ -30,7 +30,7 @@ public class MyLatLng {
      * Sets the latitude of this MyLatLng to
      * a new value.
      *
-     * @param latitude new latitude value
+     * @param latitude new latitude values
      */
     public void setLatitude(double latitude) {
         this.latitude = latitude;

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "608172328407",
+    "firebase_url": "https://final-project-58838.firebaseio.com",
+    "project_id": "final-project-58838",
+    "storage_bucket": "final-project-58838.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608172328407:android:76b07b2f3e763b7b",
+        "android_client_info": {
+          "package_name": "edu.gatech.cs2340.a2340_android_dev_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608172328407-btrat6a3ikbktbp8piu2b80obuks6bvd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.gatech.cs2340.a2340_android_dev_project",
+            "certificate_hash": "dc7ea17f1d497ba0e25e794f95a8f56fe0f36425"
+          }
+        },
+        {
+          "client_id": "608172328407-774c3ar6o73f3837l4ott674483b5483.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvDc6N_kN4kyOyyFy8tlf8KybI3EK4XBo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608172328407-774c3ar6o73f3837l4ott674483b5483.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -63,4 +63,23 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="33dp" />
 
+    <Button
+        android:id="@+id/writeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Write Changes"
+        android:layout_above="@+id/editProfileButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/viewReports"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:text="View Report"
+        android:visibility="invisible"
+        android:layout_below="@+id/mapButton"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

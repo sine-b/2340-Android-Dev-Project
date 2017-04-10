@@ -22,7 +22,9 @@ public class ListPurityActivity extends AppCompatActivity {
 
         // set up list view
         reportListView = (ListView) findViewById(R.id.reportListView);
-        ArrayAdapter<String> listAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, MainActivity.purityReportList.getReportList());
+        ArrayAdapter<String> listAdapter = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1,
+                MainActivity.getPurityReportList().getReportList());
         reportListView.setAdapter(listAdapter);
 
         // event handler for report on list
@@ -30,7 +32,8 @@ public class ListPurityActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                PurityDetailsActivity.setReport(MainActivity.purityReportList.getReportList().get(position));
+                PurityDetailsActivity.setReport(MainActivity
+                        .getPurityReportList().getReportList().get(position));
                 onReportPressed(view);
 
             }

@@ -1,12 +1,11 @@
 package edu.gatech.cs2340.a2340_android_dev_project.model;
 
-import com.google.android.gms.maps.model.LatLng;
 
-public class PurityReport extends Report{
+public class PurityReport {
     private String date;
     private int id;
     private String reporter;
-    private LatLng location;
+    private MyLatLng location;
     private int virusNumber;
     private int contaminantNumber;
     private ConditionType conditionType;
@@ -26,7 +25,7 @@ public class PurityReport extends Report{
      *
      * @return the virus PPM
      */
-    public int getVirus() {
+    public int getVirusNumber() {
         return virusNumber;
     }
 
@@ -35,7 +34,7 @@ public class PurityReport extends Report{
      *
      * @return the contaminant PPM
      */
-    public int getContaminant() {
+    public int getContaminantNumber() {
         return contaminantNumber;
     }
 
@@ -60,11 +59,11 @@ public class PurityReport extends Report{
     }
 
     /**
-     * Returns the location of the report, in LatLng
+     * Returns the location of the report, in MyLatLng
      *
-     * @return a LatLng of the report's location
+     * @return a MyLatLng of the report's location
      */
-    public LatLng getLocation() {
+    public MyLatLng getLocation() {
         return location;
     }
 
@@ -110,11 +109,11 @@ public class PurityReport extends Report{
     }
 
     /**
-     * Sets the location of the report to the specified LatLng.
+     * Sets the location of the report to the specified MyLatLng.
      *
-     * @param location the new location of the report, in LatLng
+     * @param location the new location of the report, in MyLatLng
      */
-    public void setLocation(LatLng location) {
+    public void setLocation(MyLatLng location) {
         this.location = location;
     }
 
@@ -123,7 +122,6 @@ public class PurityReport extends Report{
      *
      * @param virusNumber the virus PPM
      */
-    @Override
     public void setVirusNumber(int virusNumber) {
         this.virusNumber = virusNumber;
     }
@@ -133,7 +131,6 @@ public class PurityReport extends Report{
      *
      * @param contaminantNumber the contaminant PPM
      */
-    @Override
     public void setContaminantNumber(int contaminantNumber) {
         this.contaminantNumber = contaminantNumber;
     }
@@ -149,6 +146,7 @@ public class PurityReport extends Report{
 
     @Override
     public String toString() {
-        return id + " - " + conditionType.toString() + ", " + "Virus PPM: " + virusNumber + " Contaminant PPM: " + contaminantNumber;
+        return id + " - " + conditionType.toString() + ", " + "Virus PPM: " + virusNumber +
+                " Contaminant PPM: " + contaminantNumber;
     }
 }

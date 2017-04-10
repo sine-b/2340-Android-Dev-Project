@@ -9,6 +9,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
 import edu.gatech.cs2340.a2340_android_dev_project.model.UserList;
 
 /**
@@ -16,6 +21,9 @@ import edu.gatech.cs2340.a2340_android_dev_project.model.UserList;
  * users as well as displaying an error for incorrect logins.
  */
 public class LoginActivity extends AppCompatActivity {
+    private DatabaseReference dataUserList = WelcomeActivity.getDatabase().getReference("userList");
+    private static UserList userList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +35,21 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onSignInButtonPressed(view);
+            }
+        });
+
+        // reads in the userList
+        dataUserList.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                userList = dataSnapshot.getValue(UserList.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast toast = Toast.makeText(getApplicationContext(), "Couldn't get the data...",
+                        Toast.LENGTH_SHORT);
+                toast.show();
             }
         });
     }
@@ -43,14 +66,14 @@ public class LoginActivity extends AppCompatActivity {
         EditText username = (EditText) findViewById(R.id.loginUser);
         EditText password = (EditText) findViewById(R.id.loginPass);
 
-        UserList userList = RegisterActivity.getUserList();
-
         if (userList.authenticate(username.getText().toString(), password.getText().toString())) {
-            RegisterActivity.user = userList.getUser(username.getText().toString());
+            MainActivity.setUser(userList.getUser(username.getText().toString()));
+            MainActivity.setUserList(userList);
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         } else {
-            Toast fail = Toast.makeText(getApplicationContext(), "Invalid Username/Password", Toast.LENGTH_SHORT);
+            Toast fail = Toast.makeText(getApplicationContext(), "Invalid Username/Password",
+                    Toast.LENGTH_SHORT);
             fail.show();
         }
     }

@@ -32,12 +32,20 @@ public class PurityReportList {
      * @param report the Report to be added
      */
     public void addReport(PurityReport report) {
-        report.setId(idCounter);
-        report.setReporter(MainActivity.getUser().getUser());
+        if (purityReportList.size() == 0) {
+            report.setId(0);
+        } else {
+            report.setId(idCounter);
+        }
+        //report.setReporter(MainActivity.getUser().getUser());
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy HH:mm");
         Date date = new Date();
         report.setDate(dateFormat.format(date));
         purityReportList.add(report);
         idCounter++;
+    }
+
+    public PurityReport getReport(int index) {
+        return purityReportList.get(index);
     }
 }

@@ -56,4 +56,19 @@ public class MyLatLng {
         this.longitude = longitude;
     }
 
+    /**
+     * finds if two locations are equal
+     *
+     * @param loc location that is being compared to
+     * @return if the location is equal to this location
+     */
+    public boolean equals(MyLatLng loc) {
+        if (loc.getLongitude() == longitude && loc.getLatitude() == latitude) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
 }

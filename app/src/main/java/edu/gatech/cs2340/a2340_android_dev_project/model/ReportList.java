@@ -33,11 +33,15 @@ public class ReportList {
      */
     public void addReport(Report report) {
         report.setId(idCounter);
-        report.setReporter(MainActivity.getUser().getUser());
+        //report.setReporter(MainActivity.getUser().getUser());
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy HH:mm");
         Date date = new Date();
         report.setDate(dateFormat.format(date));
         reportList.add(report);
         idCounter++;
+    }
+
+    public Report getReport(int index) {
+        return reportList.get(index);
     }
 }

@@ -29,7 +29,8 @@
         style="@style/Widget.AppCompat.Button"
         android:layout_above="@+id/signOutButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="15dp" />
 
     <Button
         android:text="Submit"
@@ -62,15 +63,6 @@
         android:layout_below="@+id/submitReportButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="33dp" />
-
-    <Button
-        android:id="@+id/writeButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Write Changes"
-        android:layout_above="@+id/editProfileButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/viewReports"

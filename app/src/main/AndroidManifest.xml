@@ -60,6 +60,7 @@
         <activity android:name=".ListChoiceActivity" />
         <activity android:name=".ListPurityActivity" />
         <activity android:name=".PurityDetailsActivity" />
+        <activity android:name=".BanActivity"></activity>
     </application>
 
 </manifest>

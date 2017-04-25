@@ -16,5 +16,6 @@
     </string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_select_location">Map</string>
-    <string name="facebook_app_id">422672131442338</string>
+    <string name="facebook_app_id">640605326144186</string>
+    <string name="fb_login_protocol_scheme">fb640605326144186</string>
 </resources>

@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.TextView;
 
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,6 +22,8 @@ import com.facebook.login.LoginResult;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 
+import edu.gatech.cs2340.a2340_android_dev_project.model.AccType;
+import edu.gatech.cs2340.a2340_android_dev_project.model.User;
 import edu.gatech.cs2340.a2340_android_dev_project.model.UserList;
 
 /**
@@ -37,6 +41,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
 
         // event handler for sign in button
         Button signInButton = (Button) findViewById(R.id.loginButton);
@@ -69,7 +75,24 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                // switch to MainActivity
+
+                // gets the user associated with the Facebook account
+
+                String username = loginResult.getAccessToken().getUserId().toString();
+                String password = "standin";
+                User user = userList.getUser(username);
+
+                if (user == null) { // if user doesn't exist, creates it
+                    user = new User(username, password, AccType.BASICUSER);
+                    userList.addUser(user);
+                    dataUserList.setValue(userList);
+                }
+
+                MainActivity.setUser(user);
+                MainActivity.setUserList(userList);
+
+                onFacebookLoginButtonPressed();
+
             }
 
             @Override
@@ -124,6 +147,15 @@ public class LoginActivity extends AppCompatActivity {
 
         }
 
+    }
+
+    /**
+     * Function for the Facebook login button. Switches
+     * to the main activity through an intent.
+     */
+    public void onFacebookLoginButtonPressed() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
 }

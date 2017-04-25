@@ -133,6 +133,8 @@ public class LoginActivity extends AppCompatActivity {
                         " currently banned", Toast.LENGTH_SHORT);
                 noway.show();
             } else {
+                userList.getUser(username.getText().toString()).setFails(0);
+                dataUserList.setValue(userList);
                 MainActivity.setUser(userList.getUser(username.getText().toString()));
                 MainActivity.setUserList(userList);
                 Intent intent = new Intent(this, MainActivity.class);
@@ -141,9 +143,28 @@ public class LoginActivity extends AppCompatActivity {
 
         } else {
 
-            Toast fail = Toast.makeText(getApplicationContext(), "Invalid Username/Password",
-                    Toast.LENGTH_SHORT);
-            fail.show();
+            User user = userList.getUser(username.getText().toString());
+
+            if (user != null) {
+                int fails = user.getFails();
+                user.setFails(fails + 1);
+                dataUserList.setValue(userList);
+                if (user.getFails() == 3) {
+                    user.setBanned(true);
+                    dataUserList.setValue(userList);
+                    Toast banned = Toast.makeText(getApplicationContext(), "This account has been" +
+                            " locked", Toast.LENGTH_SHORT);
+                    banned.show();
+                } else {
+                    Toast fail = Toast.makeText(getApplicationContext(), "Invalid password",
+                            Toast.LENGTH_SHORT);
+                    fail.show();
+                }
+            } else {
+                Toast fail = Toast.makeText(getApplicationContext(), "This user doesn't exist",
+                        Toast.LENGTH_SHORT);
+                fail.show();
+            }
 
         }
 

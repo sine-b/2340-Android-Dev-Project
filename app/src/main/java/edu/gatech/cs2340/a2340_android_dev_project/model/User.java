@@ -10,6 +10,7 @@ public class User {
     private String pass;
     private AccType type;
     private boolean banned = false;
+    private int fails = 0;
 
     private String title = "";
     private String email = "";
@@ -61,6 +62,9 @@ public class User {
     public boolean getBanned() {
         return banned;
     }
+    public int getFails() {
+        return fails;
+    }
 
     /**
      * Setter methods for the title, address, email, and phonenumber variables defined in each user
@@ -79,6 +83,9 @@ public class User {
     }
     public void setBanned(boolean banned) {
         this.banned = banned;
+    }
+    public void setFails(int fails) {
+        this.fails = fails;
     }
 
     /**

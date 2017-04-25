@@ -7,12 +7,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+
+import com.facebook.login.widget.LoginButton;
+import com.facebook.CallbackManager;
+import com.facebook.login.LoginResult;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
 
 import edu.gatech.cs2340.a2340_android_dev_project.model.UserList;
 
@@ -23,6 +29,9 @@ import edu.gatech.cs2340.a2340_android_dev_project.model.UserList;
 public class LoginActivity extends AppCompatActivity {
     private DatabaseReference dataUserList = WelcomeActivity.getDatabase().getReference("userList");
     private static UserList userList;
+    private TextView info;
+    private LoginButton loginButton;
+    private CallbackManager callbackManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +59,27 @@ public class LoginActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(getApplicationContext(), "Couldn't get the data...",
                         Toast.LENGTH_SHORT);
                 toast.show();
+            }
+        });
+
+        // initializes facebook SDK
+        callbackManager = CallbackManager.Factory.create();
+        info = (TextView)findViewById(R.id.info);
+        loginButton = (LoginButton)findViewById(R.id.fb_login_button);
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                // switch to MainActivity
+            }
+
+            @Override
+            public void onCancel() {
+                info.setText("Login attempt canceled.");
+            }
+
+            @Override
+            public void onError(FacebookException e) {
+                info.setText("Login attempt failed.");
             }
         });
     }

@@ -95,6 +95,18 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
+        // event handler for the manager users button
+        if (user.getType().equals(AccType.ADMIN)) {
+            Button manageUsersButton = (Button) findViewById(R.id.manageUsersButton);
+            manageUsersButton.setVisibility(View.VISIBLE);
+            manageUsersButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onManageUsersButtonPressed(view);
+                }
+            });
+        }
+
         // reads in the reportList
         dataReportList.addValueEventListener(new ValueEventListener() {
             @Override
@@ -200,6 +212,17 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onViewReportButtonPressed(View v) {
         Intent intent = new Intent(this, GetReportActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Function for the manage user button's onClick method.
+     * Sends the admin to the user management screen.
+     *
+     * @param v the view the OnClickListener belongs to
+     */
+    public void onManageUsersButtonPressed(View v) {
+        Intent intent = new Intent(this, BanActivity.class);
         startActivity(intent);
     }
 

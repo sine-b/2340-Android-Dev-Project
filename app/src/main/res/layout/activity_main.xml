@@ -68,10 +68,20 @@
         android:id="@+id/viewReports"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="21dp"
         android:text="View Report"
         android:visibility="invisible"
         android:layout_below="@+id/mapButton"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/manageUsersButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:text="Manage Users"
+        android:visibility="invisible" />
 
 </RelativeLayout>

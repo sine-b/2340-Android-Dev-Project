@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (userList.getUser(username.getText().toString()).getBanned() == true) {
                 Toast noway = Toast.makeText(getApplicationContext(), "Sorry, this account is" +
-                        "currently banned", Toast.LENGTH_SHORT);
+                        " currently banned", Toast.LENGTH_SHORT);
                 noway.show();
             } else {
                 MainActivity.setUser(userList.getUser(username.getText().toString()));

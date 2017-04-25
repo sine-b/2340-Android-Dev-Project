@@ -63,18 +63,31 @@ public class LoginActivity extends AppCompatActivity {
      * @param v the view the OnClickListener belongs to
      */
     public void onSignInButtonPressed(View v) {
+
         EditText username = (EditText) findViewById(R.id.loginUser);
         EditText password = (EditText) findViewById(R.id.loginPass);
 
         if (userList.authenticate(username.getText().toString(), password.getText().toString())) {
-            MainActivity.setUser(userList.getUser(username.getText().toString()));
-            MainActivity.setUserList(userList);
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+
+            if (userList.getUser(username.getText().toString()).getBanned() == true) {
+                Toast noway = Toast.makeText(getApplicationContext(), "Sorry, this account is" +
+                        "currently banned", Toast.LENGTH_SHORT);
+                noway.show();
+            } else {
+                MainActivity.setUser(userList.getUser(username.getText().toString()));
+                MainActivity.setUserList(userList);
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+            }
+
         } else {
+
             Toast fail = Toast.makeText(getApplicationContext(), "Invalid Username/Password",
                     Toast.LENGTH_SHORT);
             fail.show();
+
         }
+
     }
+
 }

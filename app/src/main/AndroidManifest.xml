@@ -59,7 +59,7 @@
         <activity android:name=".SubmitPurityActivity" />
         <activity android:name=".ListChoiceActivity" />
         <activity android:name=".ListPurityActivity" />
-        <activity android:name=".PurityDetailsActivity"></activity>
+        <activity android:name=".PurityDetailsActivity" />
     </application>
 
 </manifest>

@@ -6,14 +6,15 @@ package edu.gatech.cs2340.a2340_android_dev_project.model;
  * attribute later.
  */
 public class User {
-    String user;
-    String pass;
-    AccType type;
+    private String user;
+    private String pass;
+    private AccType type;
+    private boolean banned = false;
 
-    String title = "";
-    String email = "";
-    String address = "";
-    String phoneNum = "";
+    private String title = "";
+    private String email = "";
+    private String address = "";
+    private String phoneNum = "";
 
     /**
      * Constructs a new user with the username and password provided.
@@ -57,6 +58,9 @@ public class User {
     public String getPhoneNum() {
         return phoneNum;
     }
+    public boolean getBanned() {
+        return banned;
+    }
 
     /**
      * Setter methods for the title, address, email, and phonenumber variables defined in each user
@@ -72,6 +76,9 @@ public class User {
     }
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
+    }
+    public void setBanned(boolean banned) {
+        this.banned = banned;
     }
 
     /**
